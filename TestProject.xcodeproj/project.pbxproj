@@ -13,6 +13,10 @@
 		A9B01E8B2696E14900411047 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B01E892696E14900411047 /* Main.storyboard */; };
 		A9B01E8D2696E14A00411047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B01E8C2696E14A00411047 /* Assets.xcassets */; };
 		A9B01E902696E14A00411047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B01E8E2696E14A00411047 /* LaunchScreen.storyboard */; };
+		A9B01E992696E1B000411047 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E982696E1B000411047 /* Layout.swift */; };
+		A9B01E9B2696E1E900411047 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E9A2696E1E900411047 /* Constants.swift */; };
+		A9B01E9D2696E2B200411047 /* LayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E9C2696E2B200411047 /* LayoutFactory.swift */; };
+		A9B01EA02696E45000411047 /* TwoSidedTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E9F2696E45000411047 /* TwoSidedTextCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		A9B01E8C2696E14A00411047 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9B01E8F2696E14A00411047 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9B01E912696E14A00411047 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9B01E982696E1B000411047 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		A9B01E9A2696E1E900411047 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A9B01E9C2696E2B200411047 /* LayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutFactory.swift; sourceTree = "<group>"; };
+		A9B01E9F2696E45000411047 /* TwoSidedTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSidedTextCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 		A9B01E822696E14900411047 /* TestProject */ = {
 			isa = PBXGroup;
 			children = (
+				A9B01E9E2696E40800411047 /* Cells */,
+				A9B01E972696E19C00411047 /* Utility */,
 				A9B01E832696E14900411047 /* AppDelegate.swift */,
 				A9B01E852696E14900411047 /* SceneDelegate.swift */,
 				A9B01E872696E14900411047 /* ViewController.swift */,
@@ -65,6 +75,24 @@
 				A9B01E912696E14A00411047 /* Info.plist */,
 			);
 			path = TestProject;
+			sourceTree = "<group>";
+		};
+		A9B01E972696E19C00411047 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A9B01E982696E1B000411047 /* Layout.swift */,
+				A9B01E9A2696E1E900411047 /* Constants.swift */,
+				A9B01E9C2696E2B200411047 /* LayoutFactory.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		A9B01E9E2696E40800411047 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A9B01E9F2696E45000411047 /* TwoSidedTextCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9B01EA02696E45000411047 /* TwoSidedTextCell.swift in Sources */,
+				A9B01E9D2696E2B200411047 /* LayoutFactory.swift in Sources */,
+				A9B01E9B2696E1E900411047 /* Constants.swift in Sources */,
 				A9B01E882696E14900411047 /* ViewController.swift in Sources */,
+				A9B01E992696E1B000411047 /* Layout.swift in Sources */,
 				A9B01E842696E14900411047 /* AppDelegate.swift in Sources */,
 				A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */,
 			);
