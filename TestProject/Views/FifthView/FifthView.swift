@@ -23,7 +23,7 @@ struct FifthView: View {
             .navigationBarTitle(Text("Fifth View"), displayMode: .inline)
             .navigationBarItems(
                 trailing: Button(action: {
-                    print("Closing sheet")
+                    viewModel.dissmiss()
                 })
             {
                 Text("Done").bold()

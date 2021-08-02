@@ -17,8 +17,16 @@ class FifthViewCoordinator: Coordiantor {
     
     func start() {
         let viewModel = FifthViewModel()
+        viewModel.coordinator = self
         let fifthViewHostingController = FifthViewHostingController(viewModel: viewModel)
         
+        self.fifthViewHostingController = fifthViewHostingController
         self.navigationController.present(fifthViewHostingController, animated: true, completion: nil)
+    }
+}
+
+extension FifthViewCoordinator : FifthViewCoordinatorDelegate {
+    func dismiss() {
+        self.navigationController.dismiss(animated: true, completion: nil)
     }
 }

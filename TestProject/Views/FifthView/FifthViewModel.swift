@@ -7,5 +7,15 @@
 
 import Foundation
 
+protocol FifthViewCoordinatorDelegate {
+    func dismiss()
+}
+
 class FifthViewModel {
+    
+    var coordinator: FifthViewCoordinatorDelegate?
+    
+    func dissmiss() {
+        coordinator?.dismiss()
+    }
 }
