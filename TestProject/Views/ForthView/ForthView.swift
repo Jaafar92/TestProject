@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-protocol ForthViewCoordinatorDelegate {
-    func navigateToThirdView()
-    func navigateOneBack()
-    func navigateToRootNoHistory()
-    func navigateToThirdAndClearHistory()
-    func navigateToFifthView()
-}
-
 struct ForthView: View {
     
     @ObservedObject var viewModel: ForthViewModel

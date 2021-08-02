@@ -8,10 +8,6 @@
 import UIKit
 import Combine
 
-protocol FirstViewCoordinatorDelegate: AnyObject {
-    func navigateToSecondView()
-}
-
 class FirstViewController: UIViewController {
     
     weak var changeTextButton: UIButton!

@@ -5,8 +5,15 @@
 //  Created by Jaafar on 31/07/2021.
 //
 
-import Foundation
 import Combine
+
+protocol ForthViewCoordinatorDelegate {
+    func navigateToThirdView()
+    func navigateOneBack()
+    func navigateToRootNoHistory()
+    func navigateToThirdAndClearHistory()
+    func navigateToFifthView()
+}
 
 class ForthViewModel : ObservableObject {
     @Published var text: String = "Forth View"

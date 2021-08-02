@@ -5,14 +5,8 @@
 //  Created by Jaafar on 30/07/2021.
 //
 
-import Foundation
 import UIKit
 import Combine
-
-protocol SecondViewCoordinatorDelegate {
-    func navigateToThirdView()
-    func navigateToForthView()
-}
 
 class SecondViewController: UIViewController {
     

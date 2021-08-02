@@ -5,14 +5,8 @@
 //  Created by Jaafar on 31/07/2021.
 //
 
-import Foundation
 import UIKit
 import Combine
-
-protocol ThirdViewCoordinatorDelegate {
-    func navigateOneBack()
-    func navigateBackNoHistory()
-}
 
 class ThirdViewController : UIViewController {
     

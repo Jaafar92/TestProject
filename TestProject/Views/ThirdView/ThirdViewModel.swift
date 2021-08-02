@@ -8,6 +8,11 @@
 import Foundation
 import Combine
 
+protocol ThirdViewCoordinatorDelegate {
+    func navigateOneBack()
+    func navigateBackNoHistory()
+}
+
 class ThirdViewModel {
     @Published var text: String = ""
     

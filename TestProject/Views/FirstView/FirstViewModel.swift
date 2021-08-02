@@ -8,6 +8,10 @@
 import Foundation
 import Combine
 
+protocol FirstViewCoordinatorDelegate: AnyObject {
+    func navigateToSecondView()
+}
+
 class FirstViewModel {
     @Published var text: String = ""
     
