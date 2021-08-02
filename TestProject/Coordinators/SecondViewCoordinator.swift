@@ -17,8 +17,9 @@ class SecondViewCoordinator: Coordiantor {
     }
     
     func start() {
-        let secondViewController = SecondViewController()
-        secondViewController.coordinator = self
+        let viewModel = SecondViewModel()
+        viewModel.coordinator = self
+        let secondViewController = SecondViewController(viewModel: viewModel)
         
         self.secondViewController = secondViewController
         self.navigationController.pushViewController(secondViewController, animated: true)

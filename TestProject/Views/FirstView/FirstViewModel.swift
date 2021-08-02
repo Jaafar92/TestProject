@@ -11,7 +11,13 @@ import Combine
 class FirstViewModel {
     @Published var text: String = ""
     
+    var coordinator: FirstViewCoordinatorDelegate?
+    
     func changeText() {
         self.text = "Hello World"
+    }
+    
+    func navigateToSecondView() {
+        coordinator?.navigateToSecondView()
     }
 }

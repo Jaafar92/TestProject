@@ -16,8 +16,6 @@ protocol SecondViewCoordinatorDelegate {
 
 class SecondViewController: UIViewController {
     
-    var coordinator : SecondViewCoordinatorDelegate?
-    
     weak var changeTextButton: UIButton!
     weak var navigateToNextPageButton: UIButton!
     weak var pageIndicatorLabel: UILabel!
@@ -27,7 +25,7 @@ class SecondViewController: UIViewController {
     private var bindings = Set<AnyCancellable>()
     
     
-    init(viewModel: SecondViewModel = SecondViewModel()) {
+    init(viewModel: SecondViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -72,11 +70,11 @@ class SecondViewController: UIViewController {
     }
     
     @objc func navigateToForthPage(_ sender: UIButton) {
-        coordinator?.navigateToForthView()
+        viewModel.navigateToForthView()
     }
     
     @objc func navigateToThirdPage(_ sender: UIButton) {
-        coordinator?.navigateToThirdView()
+        viewModel.navigateToThirdView()
     }
     
     private func setupConstraints() {

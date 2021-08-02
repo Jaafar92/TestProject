@@ -17,8 +17,9 @@ class FirstViewCoordinator : Coordiantor {
     }
     
     func start() {
-        let firstViewController = FirstViewController()
-        firstViewController.coordinator = self
+        let viewModel = FirstViewModel()
+        viewModel.coordinator = self
+        let firstViewController = FirstViewController(viewModel: viewModel)
         
         self.firstViewController = firstViewController
         navigationController.pushViewController(firstViewController, animated: true)

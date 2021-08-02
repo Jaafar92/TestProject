@@ -17,8 +17,9 @@ class ThirdViewCoordinator : Coordiantor {
     }
     
     func start() {
-        let thirdViewController = ThirdViewController()
-        thirdViewController.coordinator = self
+        let viewModel = ThirdViewModel()
+        viewModel.coordinator = self
+        let thirdViewController = ThirdViewController(viewModel: viewModel)
         
         self.thirdViewController = thirdViewController
         self.navigationController.pushViewController(thirdViewController, animated: true)
@@ -26,17 +27,18 @@ class ThirdViewCoordinator : Coordiantor {
 }
 
 extension ThirdViewCoordinator : ThirdViewCoordinatorDelegate {
-    func goBackOne() {
+    func navigateOneBack() {
         self.navigationController.popViewController(animated: true)
     }
     
-    func backNoHistory() {
+    func navigateBackNoHistory() {
         self.navigationController.popToRootViewController(animated: true)
     }
     
     func startAndClearHistory() {
-        let thirdViewController = ThirdViewController()
-        thirdViewController.coordinator = self
+        let viewModel = ThirdViewModel()
+        viewModel.coordinator = self
+        let thirdViewController = ThirdViewController(viewModel: viewModel)
         
         let viewControllersToManage: [UIViewController] = [thirdViewController]
         self.thirdViewController = thirdViewController

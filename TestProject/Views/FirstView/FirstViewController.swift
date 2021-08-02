@@ -14,8 +14,6 @@ protocol FirstViewCoordinatorDelegate: AnyObject {
 
 class FirstViewController: UIViewController {
     
-    var coordinator: FirstViewCoordinatorDelegate?
-    
     weak var changeTextButton: UIButton!
     weak var navigateToNextPageButton: UIButton!
     weak var pageIndicatorLabel: UILabel!
@@ -24,17 +22,13 @@ class FirstViewController: UIViewController {
     private let viewModel: FirstViewModel
     private var bindings = Set<AnyCancellable>()
     
-    init(viewModel: FirstViewModel = FirstViewModel()) {
+    init(viewModel: FirstViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setCoordinator(coordinator: FirstViewCoordinatorDelegate) {
-        self.coordinator = coordinator
     }
     
     override func viewDidLoad() {
@@ -80,7 +74,7 @@ class FirstViewController: UIViewController {
     }
     
     @objc func nextPageCommand(_ sender: UIButton) {
-        coordinator?.navigateToSecondView()
+        viewModel.navigateToSecondView()
     }
     
     private func setupConstraints() {

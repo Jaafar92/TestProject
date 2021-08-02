@@ -18,7 +18,6 @@ protocol ForthViewCoordinatorDelegate {
 struct ForthView: View {
     
     @ObservedObject var viewModel: ForthViewModel
-    var coordinator: ForthViewCoordinatorDelegate?
     
     init(viewModel: ForthViewModel) {
         self.viewModel = viewModel
@@ -39,33 +38,33 @@ struct ForthView: View {
             })
             
             Button(action: {
-                coordinator?.navigateToThirdView()
+                viewModel.navigateToThirdView()
             }, label: {
                 Text("Navigate to third view")
             })
     
             
             Button(action: {
-                coordinator?.navigateOneBack()
+                viewModel.navigateOneBack()
             }, label: {
                 Text("Navigate to one back")
             })
             
             
             Button(action: {
-                coordinator?.navigateToRootNoHistory()
+                viewModel.navigateToRootNoHistory()
             }, label: {
                 Text("Navigate to back no history")
             })
             
             Button(action: {
-                coordinator?.navigateToThirdAndClearHistory()
+                viewModel.navigateToThirdAndClearHistory()
             }, label: {
                 Text("Navigate to Third and clear history")
             })
             
             Button(action: {
-                coordinator?.navigateToFifthView()
+                viewModel.navigateToFifthView()
             }, label: {
                 Text("Navigate to Fifth View")
             })

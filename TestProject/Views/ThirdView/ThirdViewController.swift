@@ -10,22 +10,21 @@ import UIKit
 import Combine
 
 protocol ThirdViewCoordinatorDelegate {
-    func goBackOne()
-    func backNoHistory()
+    func navigateOneBack()
+    func navigateBackNoHistory()
 }
 
 class ThirdViewController : UIViewController {
-    var coordinator: ThirdViewCoordinatorDelegate?
     
     weak var changeTextButton: UIButton!
     weak var navigateToNextPageButton: UIButton!
     weak var pageIndicatorLabel: UILabel!
     weak var textContainerLabel: UILabel!
     
-    private let viewModel: FirstViewModel
+    private let viewModel: ThirdViewModel
     private var bindings = Set<AnyCancellable>()
     
-    init(viewModel: FirstViewModel = FirstViewModel()) {
+    init(viewModel: ThirdViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -70,11 +69,11 @@ class ThirdViewController : UIViewController {
     }
     
     @objc func goOneBack(_ sender: UIButton) {
-        coordinator?.goBackOne()
+        viewModel.navigateOneBack()
     }
     
     @objc func backNoHistory(_ sender: UIButton) {
-        coordinator?.backNoHistory()
+        viewModel.navigateBackNoHistory()
     }
     
     private func setupConstraints() {

@@ -17,10 +17,9 @@ class ForthViewCoordinator : Coordiantor {
     }
     
     func start() {
-        // Here we can put in any dependencies required for the ViewModel
         let viewModel = ForthViewModel()
+        viewModel.coordinator = self
         let forthViewHostingController = ForthViewHostingViewController(viewModel: viewModel)
-        forthViewHostingController.forthView.rootView.coordinator = self
         
         self.forthViewHostingController = forthViewHostingController
         self.navigationController.pushViewController(forthViewHostingController, animated: true)

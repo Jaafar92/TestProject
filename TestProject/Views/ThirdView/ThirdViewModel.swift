@@ -11,7 +11,17 @@ import Combine
 class ThirdViewModel {
     @Published var text: String = ""
     
+    var coordinator: ThirdViewCoordinatorDelegate?
+    
     func changeText() {
         self.text = "Third View"
+    }
+    
+    func navigateOneBack() {
+        coordinator?.navigateOneBack()
+    }
+    
+    func navigateBackNoHistory() {
+        coordinator?.navigateBackNoHistory()
     }
 }
