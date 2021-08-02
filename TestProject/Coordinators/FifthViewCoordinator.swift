@@ -9,7 +9,6 @@ import UIKit
 
 class FifthViewCoordinator: Coordiantor {
     private let navigationController: UINavigationController
-    private var fifthViewHostingController: UIViewController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -20,7 +19,6 @@ class FifthViewCoordinator: Coordiantor {
         viewModel.coordinator = self
         let fifthViewHostingController = FifthViewHostingController(viewModel: viewModel)
         
-        self.fifthViewHostingController = fifthViewHostingController
         self.navigationController.present(fifthViewHostingController, animated: true, completion: nil)
     }
 }

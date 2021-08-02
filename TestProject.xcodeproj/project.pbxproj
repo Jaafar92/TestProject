@@ -25,6 +25,7 @@
 		A9107E6126B6838900116AEF /* FifthViewHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E6026B6838900116AEF /* FifthViewHostingViewController.swift */; };
 		A9107E6326B6839700116AEF /* FifthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E6226B6839700116AEF /* FifthViewModel.swift */; };
 		A9107E6526B6855F00116AEF /* FifthViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E6426B6855F00116AEF /* FifthViewCoordinator.swift */; };
+		A92E9DDB26B8279B00D69CE8 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DDA26B8279B00D69CE8 /* BaseUIViewController.swift */; };
 		A9B01E842696E14900411047 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E832696E14900411047 /* AppDelegate.swift */; };
 		A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E852696E14900411047 /* SceneDelegate.swift */; };
 		A9B01E882696E14900411047 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E872696E14900411047 /* FirstViewController.swift */; };
@@ -55,6 +56,7 @@
 		A9107E6026B6838900116AEF /* FifthViewHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewHostingViewController.swift; sourceTree = "<group>"; };
 		A9107E6226B6839700116AEF /* FifthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewModel.swift; sourceTree = "<group>"; };
 		A9107E6426B6855F00116AEF /* FifthViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewCoordinator.swift; sourceTree = "<group>"; };
+		A92E9DDA26B8279B00D69CE8 /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
 		A9B01E802696E14900411047 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B01E832696E14900411047 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B01E852696E14900411047 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		A9107E3626B2BDE900116AEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A92E9DD926B8278300D69CE8 /* Base */,
 				A9107E5D26B6834E00116AEF /* FifthView */,
 				A9107E5426B562D800116AEF /* ForthView */,
 				A9107E4B26B54C6500116AEF /* ThirdView */,
@@ -165,6 +168,14 @@
 				A9107E6226B6839700116AEF /* FifthViewModel.swift */,
 			);
 			path = FifthView;
+			sourceTree = "<group>";
+		};
+		A92E9DD926B8278300D69CE8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A92E9DDA26B8279B00D69CE8 /* BaseUIViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		A9B01E772696E14900411047 = {
@@ -312,6 +323,7 @@
 				A9107E5826B5633C00116AEF /* ForthViewHostingViewController.swift in Sources */,
 				A9107E5126B54E3D00116AEF /* ThirdViewCoordinator.swift in Sources */,
 				A9107E5A26B5652B00116AEF /* ForthViewCoordinator.swift in Sources */,
+				A92E9DDB26B8279B00D69CE8 /* BaseUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,6 @@ import UIKit
 class ThirdViewCoordinator : Coordiantor {
     
     private let navigationController: UINavigationController
-    private var thirdViewController: ThirdViewController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -21,7 +20,6 @@ class ThirdViewCoordinator : Coordiantor {
         viewModel.coordinator = self
         let thirdViewController = ThirdViewController(viewModel: viewModel)
         
-        self.thirdViewController = thirdViewController
         self.navigationController.pushViewController(thirdViewController, animated: true)
     }
 }
@@ -41,7 +39,6 @@ extension ThirdViewCoordinator : ThirdViewCoordinatorDelegate {
         let thirdViewController = ThirdViewController(viewModel: viewModel)
         
         let viewControllersToManage: [UIViewController] = [thirdViewController]
-        self.thirdViewController = thirdViewController
         self.navigationController.setViewControllers(viewControllersToManage, animated: true)
     }
 }

@@ -10,7 +10,6 @@ import UIKit
 class FirstViewCoordinator : Coordiantor {
 
     private let navigationController: UINavigationController
-    private var firstViewController: FirstViewController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -21,7 +20,6 @@ class FirstViewCoordinator : Coordiantor {
         viewModel.coordinator = self
         let firstViewController = FirstViewController(viewModel: viewModel)
         
-        self.firstViewController = firstViewController
         navigationController.pushViewController(firstViewController, animated: true)
     }
 }

@@ -8,15 +8,14 @@
 import UIKit
 import Combine
 
-class FirstViewController: UIViewController {
+class FirstViewController: BaseUIViewController {
     
     weak var changeTextButton: UIButton!
     weak var navigateToNextPageButton: UIButton!
     weak var pageIndicatorLabel: UILabel!
     weak var textContainerLabel: UILabel!
     
-    private let viewModel: FirstViewModel
-    private var bindings = Set<AnyCancellable>()
+    private var viewModel: FirstViewModel?
     
     init(viewModel: FirstViewModel) {
         self.viewModel = viewModel
@@ -27,6 +26,10 @@ class FirstViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        self.viewModel = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -35,8 +38,17 @@ class FirstViewController: UIViewController {
         initializeTextContainerLabel()
         initializeButtons()
         
-        setUpBindings()
         setupConstraints()
+    }
+    
+    override func setUpBindings() {
+        viewModel?.$text
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.text!, on: self.textContainerLabel)
+//            .sink(receiveValue: { text in
+//                self.textContainerLabel.text = text
+//            })
+            .store(in: &bindings)
     }
     
     private func initializePageIndicatorLabel() {
@@ -55,22 +67,12 @@ class FirstViewController: UIViewController {
         self.navigateToNextPageButton.addTarget(self, action: #selector(nextPageCommand(_:)), for: .touchUpInside)
     }
     
-    private func setUpBindings() {
-        viewModel.$text
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.text!, on: self.textContainerLabel)
-//            .sink(receiveValue: { text in
-//                self.textContainerLabel.text = text
-//            })
-            .store(in: &bindings)
-    }
-    
     @objc func changeTextCommand(_ sender: UIButton) {
-        viewModel.changeText()
+        viewModel?.changeText()
     }
     
     @objc func nextPageCommand(_ sender: UIButton) {
-        viewModel.navigateToSecondView()
+        viewModel?.navigateToSecondView()
     }
     
     private func setupConstraints() {

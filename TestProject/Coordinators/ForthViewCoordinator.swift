@@ -10,7 +10,6 @@ import UIKit
 class ForthViewCoordinator : Coordiantor {
     
     private let navigationController: UINavigationController
-    private var forthViewHostingController: ForthViewHostingViewController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -21,7 +20,6 @@ class ForthViewCoordinator : Coordiantor {
         viewModel.coordinator = self
         let forthViewHostingController = ForthViewHostingViewController(viewModel: viewModel)
         
-        self.forthViewHostingController = forthViewHostingController
         self.navigationController.pushViewController(forthViewHostingController, animated: true)
     }
 }
