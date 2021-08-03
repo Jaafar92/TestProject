@@ -9,12 +9,15 @@ import UIKit
 
 protocol ColorCoordinatorDelegate {
     func navigateToYellowView()
+    func navigateToBananaView()
 }
 
-class ColorCoordinator : Coordiantor {
+class ColorCoordinator : Coordinator {
     
-    var childCoordiantors: [Coordiantor] = []
+    var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
+    
+    weak var parentCoordinator: Coordinator?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -25,7 +28,7 @@ class ColorCoordinator : Coordiantor {
         viewModel.coordinator = self
         let view = GreenView(viewModel: viewModel)
         
-        let greenHostingController = BaseUIHostingController(view: view)
+        let greenHostingController = GreenHostingViewController(view: view)
         greenHostingController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         self.navigationController.pushViewController(greenHostingController, animated: true)
     }
@@ -39,5 +42,12 @@ extension ColorCoordinator : ColorCoordinatorDelegate {
         
         let yellowHostingController = BaseUIHostingController(view: view)
         self.navigationController.pushViewController(yellowHostingController, animated: true)
+    }
+    
+    func navigateToBananaView() {
+        let fruitCoordinator = FruitCoordinator(navigationController: navigationController)
+        fruitCoordinator.parentCoordinator = self
+        childCoordinators.append(fruitCoordinator)
+        fruitCoordinator.start()
     }
 }

@@ -8,9 +8,10 @@
 import Foundation
 import UIKit
 
-protocol Coordiantor: AnyObject {
-    var childCoordiantors: [Coordiantor] { get set }
+protocol Coordinator: AnyObject {
+    var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
+    var parentCoordinator: Coordinator? { get set }
     
     func start()
     func dismiss()
@@ -18,7 +19,7 @@ protocol Coordiantor: AnyObject {
     func navigateBackToRootClearHistory()
 }
 
-extension Coordiantor {
+extension Coordinator {
     func dismiss() {
         self.navigationController.dismiss(animated: true, completion: nil)
     }
@@ -29,5 +30,27 @@ extension Coordiantor {
     
     func navigateBackToRootClearHistory() {
         self.navigationController.popToRootViewController(animated: true)
+    }
+    
+    func childDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
+    }
+
+    func removeCoordinatorFromParent(_ parent: Coordinator?, _ child: Coordinator?) {
+        guard let parent = parent else { return }
+
+        for (index, coordinator) in parent.childCoordinators.enumerated() {
+            if coordinator === child {
+                parent.childCoordinators.remove(at: index)
+                break
+            }
+        }
+
+        removeCoordinatorFromParent(parent.parentCoordinator, parent)
     }
 }

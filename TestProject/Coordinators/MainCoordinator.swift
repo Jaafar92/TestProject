@@ -16,10 +16,11 @@ protocol MainCoordinatorDelegate: AnyObject {
     func navigateToGreenView()
 }
 
-class MainCoordinator : Coordiantor {
+class MainCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
     
-    var childCoordiantors: [Coordiantor] = []
+    var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
+    var parentCoordinator: Coordinator?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -32,11 +33,27 @@ class MainCoordinator : Coordiantor {
         let firstViewController = FirstViewController(viewModel: viewModel)
         firstViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
         navigationController.pushViewController(firstViewController, animated: true)
+        navigationController.delegate = self
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        // From ViewController is the ViewController that is being navigated "back" from
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else { return }
+        
+        // If our NavigationController still has this ViewController in the list, that means we are moving forward and not backwards, thus we return
+        if navigationController.viewControllers.contains(fromViewController) {
+            return
+        }
+
+        // Now we check if "FromViewController" is the first ViewController of any of the possible child coordinators
+        if let greenHostingController = fromViewController as? GreenHostingViewController {
+            childDidFinish(greenHostingController.swiftUIView.rootView.viewModel.coordinator)
+        }
     }
 }
 
 extension MainCoordinator : MainCoordinatorDelegate {
-    
+
     func navigateToSecondView() {
         let viewModel = SecondViewModel()
         viewModel.coordinator = self
@@ -73,7 +90,8 @@ extension MainCoordinator : MainCoordinatorDelegate {
     
     func navigateToGreenView() {
         let coordinator = ColorCoordinator(navigationController: self.navigationController)
-        childCoordiantors.append(coordinator)
+        coordinator.parentCoordinator = self
+        childCoordinators.append(coordinator)
         coordinator.start()
     }
 }

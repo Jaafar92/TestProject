@@ -11,4 +11,8 @@ class YellowViewModel {
     func navigateToRoot() {
         coordinator?.navigateBackToRootClearHistory()
     }
+    
+    func navigateToBananaView() {
+        coordinator?.navigateToBananaView()
+    }
 }

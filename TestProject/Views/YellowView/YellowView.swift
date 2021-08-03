@@ -27,6 +27,12 @@ struct YellowView: View {
                 }, label: {
                     Text("Navigate to root")
                 })
+                
+                Button(action: {
+                    viewModel.navigateToBananaView()
+                }, label: {
+                    Text("Navigate Banana View")
+                })
             }
         }
     }
