@@ -23,6 +23,10 @@ class ColorCoordinator : Coordinator {
         self.navigationController = navigationController
     }
     
+    deinit {
+        print("ColorCoordinator was de-initialized")
+    }
+    
     func start() {
         let viewModel = GreenViewModel()
         viewModel.coordinator = self

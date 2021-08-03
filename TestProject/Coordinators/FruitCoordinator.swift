@@ -8,9 +8,15 @@ class FruitCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     var parentCoordinator: Coordinator?
+    
+    weak var parentCoordinator: Coordinator?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+    }
+    
+    deinit {
+        print("FruitCoordinator was de-initialized")
     }
 
     func start() {
