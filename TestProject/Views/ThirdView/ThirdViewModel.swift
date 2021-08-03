@@ -10,7 +10,7 @@ import Combine
 class ThirdViewModel {
     @Published var text: String = ""
     
-    var coordinator: MainCoordinatorDelegate?
+    weak var coordinator: MainCoordinator?
     
     func changeText() {
         self.text = "Third View"

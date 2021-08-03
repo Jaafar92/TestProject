@@ -50,9 +50,9 @@ struct ForthView: View {
             })
             
             Button(action: {
-                viewModel.navigateToThirdAndClearHistory()
+                viewModel.navigateToGreenView()
             }, label: {
-                Text("Navigate to Third and clear history")
+                Text("Navigate to Green view")
             })
             
             Button(action: {

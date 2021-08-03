@@ -10,14 +10,14 @@ import Combine
 class ForthViewModel : ObservableObject {
     @Published var text: String = "Forth View"
     
-    var coordinator: MainCoordinatorDelegate?
+    weak var coordinator: MainCoordinator?
     
     func changeText() {
         self.text = "Changed text in SwiftUI and Combine"
     }
     
     func navigateToThirdView() {
-        coordinator?.navigateToThirdView(withFlag: .none)
+        coordinator?.navigateToThirdView()
     }
     
     func navigateOneBack() {
@@ -28,8 +28,8 @@ class ForthViewModel : ObservableObject {
         coordinator?.navigateBackToRootClearHistory()
     }
     
-    func navigateToThirdAndClearHistory() {
-        coordinator?.navigateToThirdView(withFlag: .clearHistory)
+    func navigateToGreenView() {
+        coordinator?.navigateToGreenView()
     }
     
     func navigateToFifthView() {

@@ -10,14 +10,14 @@ import Combine
 class SecondViewModel {
     @Published var text: String = ""
     
-    var coordinator: MainCoordinatorDelegate?
+    weak var coordinator: MainCoordinator?
     
     func changeText() {
         self.text = "Coordinator"
     }
     
     func navigateToThirdView() {
-        coordinator?.navigateToThirdView(withFlag: .none)
+        coordinator?.navigateToThirdView()
     }
     
     func navigateToForthView() {

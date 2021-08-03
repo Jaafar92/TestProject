@@ -12,16 +12,20 @@
 		A9107E4126B42BEA00116AEF /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E4026B42BEA00116AEF /* MainCoordinator.swift */; };
 		A9107E4426B4359F00116AEF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E4326B4359F00116AEF /* SecondViewController.swift */; };
 		A9107E4626B4361800116AEF /* SecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E4526B4361800116AEF /* SecondViewModel.swift */; };
-		A9107E4A26B43C7C00116AEF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E4926B43C7C00116AEF /* AppCoordinator.swift */; };
 		A9107E4D26B54C7200116AEF /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E4C26B54C7200116AEF /* ThirdViewController.swift */; };
 		A9107E4F26B54C7A00116AEF /* ThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E4E26B54C7A00116AEF /* ThirdViewModel.swift */; };
 		A9107E5626B562E900116AEF /* ForthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E5526B562E900116AEF /* ForthView.swift */; };
-		A9107E5826B5633C00116AEF /* ForthViewHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E5726B5633C00116AEF /* ForthViewHostingViewController.swift */; };
 		A9107E5C26B573D300116AEF /* ForthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E5B26B573D300116AEF /* ForthViewModel.swift */; };
 		A9107E5F26B6836D00116AEF /* FifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E5E26B6836D00116AEF /* FifthView.swift */; };
-		A9107E6126B6838900116AEF /* FifthViewHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E6026B6838900116AEF /* FifthViewHostingViewController.swift */; };
 		A9107E6326B6839700116AEF /* FifthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E6226B6839700116AEF /* FifthViewModel.swift */; };
 		A92E9DDB26B8279B00D69CE8 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DDA26B8279B00D69CE8 /* BaseUIViewController.swift */; };
+		A92E9DE226B91F8D00D69CE8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DE126B91F8D00D69CE8 /* MainTabBarController.swift */; };
+		A92E9DE426B93FA500D69CE8 /* BaseUIHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DE326B93FA500D69CE8 /* BaseUIHostingController.swift */; };
+		A92E9DEB26B9461B00D69CE8 /* ColorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DEA26B9461B00D69CE8 /* ColorCoordinator.swift */; };
+		A92E9DEF26B9475D00D69CE8 /* GreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DEE26B9475D00D69CE8 /* GreenViewModel.swift */; };
+		A92E9DF126B9476700D69CE8 /* GreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF026B9476700D69CE8 /* GreenView.swift */; };
+		A92E9DF426B949C200D69CE8 /* YellowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF326B949C200D69CE8 /* YellowView.swift */; };
+		A92E9DF626B949E100D69CE8 /* YellowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF526B949E100D69CE8 /* YellowViewModel.swift */; };
 		A9B01E842696E14900411047 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E832696E14900411047 /* AppDelegate.swift */; };
 		A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E852696E14900411047 /* SceneDelegate.swift */; };
 		A9B01E882696E14900411047 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E872696E14900411047 /* FirstViewController.swift */; };
@@ -39,16 +43,20 @@
 		A9107E4026B42BEA00116AEF /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A9107E4326B4359F00116AEF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		A9107E4526B4361800116AEF /* SecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewModel.swift; sourceTree = "<group>"; };
-		A9107E4926B43C7C00116AEF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A9107E4C26B54C7200116AEF /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		A9107E4E26B54C7A00116AEF /* ThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewModel.swift; sourceTree = "<group>"; };
 		A9107E5526B562E900116AEF /* ForthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthView.swift; sourceTree = "<group>"; };
-		A9107E5726B5633C00116AEF /* ForthViewHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthViewHostingViewController.swift; sourceTree = "<group>"; };
 		A9107E5B26B573D300116AEF /* ForthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthViewModel.swift; sourceTree = "<group>"; };
 		A9107E5E26B6836D00116AEF /* FifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthView.swift; sourceTree = "<group>"; };
-		A9107E6026B6838900116AEF /* FifthViewHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewHostingViewController.swift; sourceTree = "<group>"; };
 		A9107E6226B6839700116AEF /* FifthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewModel.swift; sourceTree = "<group>"; };
 		A92E9DDA26B8279B00D69CE8 /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		A92E9DE126B91F8D00D69CE8 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		A92E9DE326B93FA500D69CE8 /* BaseUIHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIHostingController.swift; sourceTree = "<group>"; };
+		A92E9DEA26B9461B00D69CE8 /* ColorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCoordinator.swift; sourceTree = "<group>"; };
+		A92E9DEE26B9475D00D69CE8 /* GreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewModel.swift; sourceTree = "<group>"; };
+		A92E9DF026B9476700D69CE8 /* GreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenView.swift; sourceTree = "<group>"; };
+		A92E9DF326B949C200D69CE8 /* YellowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowView.swift; sourceTree = "<group>"; };
+		A92E9DF526B949E100D69CE8 /* YellowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewModel.swift; sourceTree = "<group>"; };
 		A9B01E802696E14900411047 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B01E832696E14900411047 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B01E852696E14900411047 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +85,9 @@
 			isa = PBXGroup;
 			children = (
 				A92E9DD926B8278300D69CE8 /* Base */,
+				A92E9DE026B91F7A00D69CE8 /* TabBarController */,
+				A92E9DF226B9499900D69CE8 /* YellowView */,
+				A92E9DED26B9472400D69CE8 /* GreenView */,
 				A9107E5D26B6834E00116AEF /* FifthView */,
 				A9107E5426B562D800116AEF /* ForthView */,
 				A9107E4B26B54C6500116AEF /* ThirdView */,
@@ -114,8 +125,8 @@
 		A9107E3F26B42BD800116AEF /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				A9107E4926B43C7C00116AEF /* AppCoordinator.swift */,
 				A9107E4026B42BEA00116AEF /* MainCoordinator.swift */,
+				A92E9DEA26B9461B00D69CE8 /* ColorCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -142,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				A9107E5526B562E900116AEF /* ForthView.swift */,
-				A9107E5726B5633C00116AEF /* ForthViewHostingViewController.swift */,
 				A9107E5B26B573D300116AEF /* ForthViewModel.swift */,
 			);
 			path = ForthView;
@@ -152,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				A9107E5E26B6836D00116AEF /* FifthView.swift */,
-				A9107E6026B6838900116AEF /* FifthViewHostingViewController.swift */,
 				A9107E6226B6839700116AEF /* FifthViewModel.swift */,
 			);
 			path = FifthView;
@@ -162,8 +171,35 @@
 			isa = PBXGroup;
 			children = (
 				A92E9DDA26B8279B00D69CE8 /* BaseUIViewController.swift */,
+				A92E9DE326B93FA500D69CE8 /* BaseUIHostingController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		A92E9DE026B91F7A00D69CE8 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				A92E9DE126B91F8D00D69CE8 /* MainTabBarController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		A92E9DED26B9472400D69CE8 /* GreenView */ = {
+			isa = PBXGroup;
+			children = (
+				A92E9DEE26B9475D00D69CE8 /* GreenViewModel.swift */,
+				A92E9DF026B9476700D69CE8 /* GreenView.swift */,
+			);
+			path = GreenView;
+			sourceTree = "<group>";
+		};
+		A92E9DF226B9499900D69CE8 /* YellowView */ = {
+			isa = PBXGroup;
+			children = (
+				A92E9DF326B949C200D69CE8 /* YellowView.swift */,
+				A92E9DF526B949E100D69CE8 /* YellowViewModel.swift */,
+			);
+			path = YellowView;
 			sourceTree = "<group>";
 		};
 		A9B01E772696E14900411047 = {
@@ -287,26 +323,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9107E4426B4359F00116AEF /* SecondViewController.swift in Sources */,
+				A92E9DEF26B9475D00D69CE8 /* GreenViewModel.swift in Sources */,
 				A9B01EA02696E45000411047 /* TwoSidedTextCell.swift in Sources */,
 				A9107E5626B562E900116AEF /* ForthView.swift in Sources */,
 				A9B01E9D2696E2B200411047 /* LayoutFactory.swift in Sources */,
 				A9107E5F26B6836D00116AEF /* FifthView.swift in Sources */,
+				A92E9DF126B9476700D69CE8 /* GreenView.swift in Sources */,
 				A9107E3A26B2C18500116AEF /* FirstViewModel.swift in Sources */,
+				A92E9DEB26B9461B00D69CE8 /* ColorCoordinator.swift in Sources */,
+				A92E9DE226B91F8D00D69CE8 /* MainTabBarController.swift in Sources */,
+				A92E9DF626B949E100D69CE8 /* YellowViewModel.swift in Sources */,
 				A9107E4626B4361800116AEF /* SecondViewModel.swift in Sources */,
+				A92E9DE426B93FA500D69CE8 /* BaseUIHostingController.swift in Sources */,
 				A9B01E9B2696E1E900411047 /* Constants.swift in Sources */,
 				A9107E4F26B54C7A00116AEF /* ThirdViewModel.swift in Sources */,
 				A9107E5C26B573D300116AEF /* ForthViewModel.swift in Sources */,
-				A9107E4A26B43C7C00116AEF /* AppCoordinator.swift in Sources */,
 				A9107E4D26B54C7200116AEF /* ThirdViewController.swift in Sources */,
 				A9107E6326B6839700116AEF /* FifthViewModel.swift in Sources */,
 				A9107E4126B42BEA00116AEF /* MainCoordinator.swift in Sources */,
 				A9B01E882696E14900411047 /* FirstViewController.swift in Sources */,
 				A9B01E992696E1B000411047 /* Layout.swift in Sources */,
 				A9B01E842696E14900411047 /* AppDelegate.swift in Sources */,
-				A9107E6126B6838900116AEF /* FifthViewHostingViewController.swift in Sources */,
+				A92E9DF426B949C200D69CE8 /* YellowView.swift in Sources */,
 				A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */,
 				A9107E3E26B4036800116AEF /* Coordinator.swift in Sources */,
-				A9107E5826B5633C00116AEF /* ForthViewHostingViewController.swift in Sources */,
 				A92E9DDB26B8279B00D69CE8 /* BaseUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

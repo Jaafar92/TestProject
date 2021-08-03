@@ -7,7 +7,7 @@
 
 class FifthViewModel {
     
-    var coordinator: MainCoordinatorDelegate?
+    weak var coordinator: MainCoordinator?
     
     func dissmiss() {
         coordinator?.dismiss()

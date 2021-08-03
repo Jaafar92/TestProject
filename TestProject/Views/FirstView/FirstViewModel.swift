@@ -10,7 +10,7 @@ import Combine
 class FirstViewModel {
     @Published var text: String = ""
     
-    var coordinator: MainCoordinatorDelegate?
+    weak var coordinator: MainCoordinator?
     
     func changeText() {
         self.text = "Hello World"
