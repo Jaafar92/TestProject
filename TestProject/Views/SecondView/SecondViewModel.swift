@@ -5,25 +5,19 @@
 //  Created by Jaafar on 30/07/2021.
 //
 
-import Foundation
 import Combine
-
-protocol SecondViewCoordinatorDelegate {
-    func navigateToThirdView()
-    func navigateToForthView()
-}
 
 class SecondViewModel {
     @Published var text: String = ""
     
-    var coordinator: SecondViewCoordinatorDelegate?
+    var coordinator: MainCoordinatorDelegate?
     
     func changeText() {
         self.text = "Coordinator"
     }
     
     func navigateToThirdView() {
-        coordinator?.navigateToThirdView()
+        coordinator?.navigateToThirdView(withFlag: .none)
     }
     
     func navigateToForthView() {

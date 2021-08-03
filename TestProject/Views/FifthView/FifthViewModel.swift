@@ -5,13 +5,9 @@
 //  Created by Jaafar on 01/08/2021.
 //
 
-protocol FifthViewCoordinatorDelegate {
-    func dismiss()
-}
-
 class FifthViewModel {
     
-    var coordinator: FifthViewCoordinatorDelegate?
+    var coordinator: MainCoordinatorDelegate?
     
     func dissmiss() {
         coordinator?.dismiss()

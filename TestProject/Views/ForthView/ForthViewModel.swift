@@ -7,37 +7,29 @@
 
 import Combine
 
-protocol ForthViewCoordinatorDelegate {
-    func navigateToThirdView()
-    func navigateOneBack()
-    func navigateToRootNoHistory()
-    func navigateToThirdAndClearHistory()
-    func navigateToFifthView()
-}
-
 class ForthViewModel : ObservableObject {
     @Published var text: String = "Forth View"
     
-    var coordinator: ForthViewCoordinatorDelegate?
+    var coordinator: MainCoordinatorDelegate?
     
     func changeText() {
         self.text = "Changed text in SwiftUI and Combine"
     }
     
     func navigateToThirdView() {
-        coordinator?.navigateToThirdView()
+        coordinator?.navigateToThirdView(withFlag: .none)
     }
     
     func navigateOneBack() {
-        coordinator?.navigateOneBack()
+        coordinator?.navigateBack()
     }
     
     func navigateToRootNoHistory() {
-        coordinator?.navigateToRootNoHistory()
+        coordinator?.navigateBackToRootClearHistory()
     }
     
     func navigateToThirdAndClearHistory() {
-        coordinator?.navigateToThirdAndClearHistory()
+        coordinator?.navigateToThirdView(withFlag: .clearHistory)
     }
     
     func navigateToFifthView() {

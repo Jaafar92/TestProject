@@ -5,28 +5,22 @@
 //  Created by Jaafar on 31/07/2021.
 //
 
-import Foundation
 import Combine
-
-protocol ThirdViewCoordinatorDelegate {
-    func navigateOneBack()
-    func navigateBackNoHistory()
-}
 
 class ThirdViewModel {
     @Published var text: String = ""
     
-    var coordinator: ThirdViewCoordinatorDelegate?
+    var coordinator: MainCoordinatorDelegate?
     
     func changeText() {
         self.text = "Third View"
     }
     
     func navigateOneBack() {
-        coordinator?.navigateOneBack()
+        coordinator?.navigateBack()
     }
     
     func navigateBackNoHistory() {
-        coordinator?.navigateBackNoHistory()
+        coordinator?.navigateBackToRootClearHistory()
     }
 }
