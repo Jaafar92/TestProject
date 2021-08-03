@@ -20,8 +20,7 @@ class MainCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
     
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
-    var parentCoordinator: Coordinator?
-    
+
     weak var parentCoordinator: Coordinator?
     
     init(navigationController: UINavigationController) {
