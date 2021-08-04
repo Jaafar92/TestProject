@@ -31,6 +31,9 @@
 		A92E9DFC26B99D9B00D69CE8 /* BananaHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DFB26B99D9B00D69CE8 /* BananaHostingViewController.swift */; };
 		A92E9DFF26BA905200D69CE8 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DFE26BA905200D69CE8 /* BaseCoordinator.swift */; };
 		A92E9E0226BAA02300D69CE8 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9E0126BAA02300D69CE8 /* BaseViewModel.swift */; };
+		A92E9E0426BAA4F400D69CE8 /* ForthHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9E0326BAA4F400D69CE8 /* ForthHostingViewController.swift */; };
+		A92E9E0626BAA52A00D69CE8 /* FifthHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9E0526BAA52A00D69CE8 /* FifthHostingViewController.swift */; };
+		A92E9E0826BAA55A00D69CE8 /* YellowHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9E0726BAA55A00D69CE8 /* YellowHostingViewController.swift */; };
 		A9B01E842696E14900411047 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E832696E14900411047 /* AppDelegate.swift */; };
 		A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E852696E14900411047 /* SceneDelegate.swift */; };
 		A9B01E882696E14900411047 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E872696E14900411047 /* FirstViewController.swift */; };
@@ -69,6 +72,9 @@
 		A92E9DFB26B99D9B00D69CE8 /* BananaHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaHostingViewController.swift; sourceTree = "<group>"; };
 		A92E9DFE26BA905200D69CE8 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		A92E9E0126BAA02300D69CE8 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		A92E9E0326BAA4F400D69CE8 /* ForthHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthHostingViewController.swift; sourceTree = "<group>"; };
+		A92E9E0526BAA52A00D69CE8 /* FifthHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthHostingViewController.swift; sourceTree = "<group>"; };
+		A92E9E0726BAA55A00D69CE8 /* YellowHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowHostingViewController.swift; sourceTree = "<group>"; };
 		A9B01E802696E14900411047 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B01E832696E14900411047 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B01E852696E14900411047 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 			children = (
 				A9107E5526B562E900116AEF /* ForthView.swift */,
 				A9107E5B26B573D300116AEF /* ForthViewModel.swift */,
+				A92E9E0326BAA4F400D69CE8 /* ForthHostingViewController.swift */,
 			);
 			path = ForthView;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 			children = (
 				A9107E5E26B6836D00116AEF /* FifthView.swift */,
 				A9107E6226B6839700116AEF /* FifthViewModel.swift */,
+				A92E9E0526BAA52A00D69CE8 /* FifthHostingViewController.swift */,
 			);
 			path = FifthView;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 			children = (
 				A92E9DF326B949C200D69CE8 /* YellowView.swift */,
 				A92E9DF526B949E100D69CE8 /* YellowViewModel.swift */,
+				A92E9E0726BAA55A00D69CE8 /* YellowHostingViewController.swift */,
 			);
 			path = YellowView;
 			sourceTree = "<group>";
@@ -385,15 +394,18 @@
 				A92E9DFF26BA905200D69CE8 /* BaseCoordinator.swift in Sources */,
 				A9107E4F26B54C7A00116AEF /* ThirdViewModel.swift in Sources */,
 				A9107E5C26B573D300116AEF /* ForthViewModel.swift in Sources */,
+				A92E9E0626BAA52A00D69CE8 /* FifthHostingViewController.swift in Sources */,
 				A9107E4D26B54C7200116AEF /* ThirdViewController.swift in Sources */,
 				A9107E6326B6839700116AEF /* FifthViewModel.swift in Sources */,
 				A9107E4126B42BEA00116AEF /* MainCoordinator.swift in Sources */,
 				A92E9DFA26B99D4F00D69CE8 /* BananaView.swift in Sources */,
 				A9B01E882696E14900411047 /* FirstViewController.swift in Sources */,
 				A92E9E0226BAA02300D69CE8 /* BaseViewModel.swift in Sources */,
+				A92E9E0426BAA4F400D69CE8 /* ForthHostingViewController.swift in Sources */,
 				A9B01E992696E1B000411047 /* Layout.swift in Sources */,
 				A9B01E842696E14900411047 /* AppDelegate.swift in Sources */,
 				A92E9DF426B949C200D69CE8 /* YellowView.swift in Sources */,
+				A92E9E0826BAA55A00D69CE8 /* YellowHostingViewController.swift in Sources */,
 				A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */,
 				A9107E3E26B4036800116AEF /* Coordinator.swift in Sources */,
 				A92E9DF826B95E1D00D69CE8 /* GreenHostingViewController.swift in Sources */,

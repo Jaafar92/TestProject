@@ -9,6 +9,11 @@ import UIKit
 import Combine
 
 class BaseUIViewController: UIViewController {
+    
+    deinit {
+        print("\(String(describing: self)) was de-initialized")
+    }
+    
     var bindings = Set<AnyCancellable>()
     
     override func viewDidAppear(_ animated: Bool) {

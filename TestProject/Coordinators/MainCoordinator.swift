@@ -52,7 +52,7 @@ extension MainCoordinator : MainCoordinatorDelegate {
         viewModel.coordinator = self
         let view = ForthView(viewModel: viewModel)
         
-        let forthViewHostingController = BaseUIHostingController(view: view)
+        let forthViewHostingController = ForthHostingViewController(view: view)
         self.navigationController.pushViewController(forthViewHostingController, animated: true)
     }
     
@@ -61,7 +61,7 @@ extension MainCoordinator : MainCoordinatorDelegate {
         viewModel.coordinator = self
         let view = FifthView(viewModel: viewModel)
         
-        let fifthViewHostingController = BaseUIHostingController(view: view)
+        let fifthViewHostingController = FifthHostingViewController(view: view)
         self.navigationController.present(fifthViewHostingController, animated: true, completion: nil)
     }
     

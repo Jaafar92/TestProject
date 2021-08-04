@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class SecondViewController: UIViewController {
+class SecondViewController: BaseUIViewController {
     
     weak var changeTextButton: UIButton!
     weak var navigateToNextPageButton: UIButton!
@@ -16,8 +16,6 @@ class SecondViewController: UIViewController {
     weak var textContainerLabel: UILabel!
     
     private let viewModel: SecondViewModel
-    private var bindings = Set<AnyCancellable>()
-    
     
     init(viewModel: SecondViewModel) {
         self.viewModel = viewModel
@@ -36,7 +34,6 @@ class SecondViewController: UIViewController {
         initializeTextContainerLabel()
         initializeButtons()
         
-        setUpBindings()
         setupConstraints()
     }
     
@@ -56,7 +53,7 @@ class SecondViewController: UIViewController {
         self.navigateToNextPageButton.addTarget(self, action: #selector(navigateToThirdPage(_:)), for: .touchUpInside)
     }
     
-    private func setUpBindings() {
+    override func setUpBindings() {
         viewModel.$text
             .receive(on: DispatchQueue.main)
             .assign(to: \.text!, on: self.textContainerLabel)

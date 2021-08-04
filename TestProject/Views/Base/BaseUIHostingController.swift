@@ -17,6 +17,10 @@ class BaseUIHostingController<T: View> : UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    deinit {
+        print("\(String(describing: self)) was de-initialized")
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

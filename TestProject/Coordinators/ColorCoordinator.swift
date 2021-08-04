@@ -32,7 +32,7 @@ extension ColorCoordinator : ColorCoordinatorDelegate {
         viewModel.coordinator = self
         let view = YellowView(viewModel: viewModel)
         
-        let yellowHostingController = BaseUIHostingController(view: view)
+        let yellowHostingController = YellowHostingViewController(view: view)
         self.navigationController.pushViewController(yellowHostingController, animated: true)
     }
     
