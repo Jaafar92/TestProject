@@ -7,7 +7,7 @@
 
 import Combine
 
-class ForthViewModel : ObservableObject {
+class ForthViewModel : BaseViewModel, ObservableObject {
     @Published var text: String = "Forth View"
     
     weak var coordinator: MainCoordinator?

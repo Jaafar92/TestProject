@@ -30,6 +30,7 @@
 		A92E9DFA26B99D4F00D69CE8 /* BananaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF926B99D4F00D69CE8 /* BananaView.swift */; };
 		A92E9DFC26B99D9B00D69CE8 /* BananaHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DFB26B99D9B00D69CE8 /* BananaHostingViewController.swift */; };
 		A92E9DFF26BA905200D69CE8 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DFE26BA905200D69CE8 /* BaseCoordinator.swift */; };
+		A92E9E0226BAA02300D69CE8 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9E0126BAA02300D69CE8 /* BaseViewModel.swift */; };
 		A9B01E842696E14900411047 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E832696E14900411047 /* AppDelegate.swift */; };
 		A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E852696E14900411047 /* SceneDelegate.swift */; };
 		A9B01E882696E14900411047 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E872696E14900411047 /* FirstViewController.swift */; };
@@ -67,6 +68,7 @@
 		A92E9DF926B99D4F00D69CE8 /* BananaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaView.swift; sourceTree = "<group>"; };
 		A92E9DFB26B99D9B00D69CE8 /* BananaHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaHostingViewController.swift; sourceTree = "<group>"; };
 		A92E9DFE26BA905200D69CE8 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		A92E9E0126BAA02300D69CE8 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		A9B01E802696E14900411047 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B01E832696E14900411047 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B01E852696E14900411047 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		A92E9DD926B8278300D69CE8 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A92E9E0026BAA01800D69CE8 /* ViewModel */,
 				A92E9DDA26B8279B00D69CE8 /* BaseUIViewController.swift */,
 				A92E9DE326B93FA500D69CE8 /* BaseUIHostingController.swift */,
 			);
@@ -224,6 +227,14 @@
 				A92E9DFE26BA905200D69CE8 /* BaseCoordinator.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		A92E9E0026BAA01800D69CE8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A92E9E0126BAA02300D69CE8 /* BaseViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A9B01E772696E14900411047 = {
@@ -379,6 +390,7 @@
 				A9107E4126B42BEA00116AEF /* MainCoordinator.swift in Sources */,
 				A92E9DFA26B99D4F00D69CE8 /* BananaView.swift in Sources */,
 				A9B01E882696E14900411047 /* FirstViewController.swift in Sources */,
+				A92E9E0226BAA02300D69CE8 /* BaseViewModel.swift in Sources */,
 				A9B01E992696E1B000411047 /* Layout.swift in Sources */,
 				A9B01E842696E14900411047 /* AppDelegate.swift in Sources */,
 				A92E9DF426B949C200D69CE8 /* YellowView.swift in Sources */,

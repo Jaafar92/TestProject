@@ -7,7 +7,7 @@
 
 import Combine
 
-class FirstViewModel {
+class FirstViewModel : BaseViewModel {
     @Published var text: String = ""
     
     weak var coordinator: MainCoordinator?

@@ -5,7 +5,7 @@
 //  Created by Jaafar on 01/08/2021.
 //
 
-class FifthViewModel {
+class FifthViewModel : BaseViewModel {
     
     weak var coordinator: MainCoordinator?
     

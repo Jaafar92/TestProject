@@ -5,7 +5,7 @@
 //  Created by Jaafar on 03/08/2021.
 //
 
-class YellowViewModel {
+class YellowViewModel : BaseViewModel {
     weak var coordinator: ColorCoordinator?
     
     func navigateToRoot() {

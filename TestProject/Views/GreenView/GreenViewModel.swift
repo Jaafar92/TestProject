@@ -5,8 +5,8 @@
 //  Created by Jaafar on 03/08/2021.
 //
 
-class GreenViewModel {
-    
+class GreenViewModel : BaseViewModel {
+        
     weak var coordinator: ColorCoordinator?
     
     func navigateToYellowView() {

@@ -4,7 +4,7 @@
 
 import Foundation
 
-class BananaViewModel {
+class BananaViewModel : BaseViewModel {
 
     weak var coordinator: FruitCoordinator?
     
