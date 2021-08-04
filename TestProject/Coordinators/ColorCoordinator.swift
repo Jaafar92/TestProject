@@ -24,7 +24,6 @@ class ColorCoordinator : BaseCoordinator {
         greenHostingController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         self.navigationController.pushViewController(greenHostingController, animated: true)
         
-        // This is done to be able to clean up
         greenHostingController.coordinator = self
         appendToDictionary(view: greenHostingController)
     }

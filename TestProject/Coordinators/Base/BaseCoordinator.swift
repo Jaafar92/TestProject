@@ -64,6 +64,7 @@ class BaseCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
     }
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        
         // From ViewController is the ViewController that is being navigated "back" from
         guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else { return }
 
@@ -76,8 +77,6 @@ class BaseCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
         
         if let viewController = BaseCoordinator.viewControllersDictionary.removeValue(forKey: fromViewController.id) {
             childDidFinish(viewController.coordinator)
-        } else {
-            print("Not in the dictionary")
         }
     }
 
