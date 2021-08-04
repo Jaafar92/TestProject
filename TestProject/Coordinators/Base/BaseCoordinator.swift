@@ -81,5 +81,10 @@ class BaseCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
             childDidFinish(bananaHostingController.swiftUIView.rootView.viewModel.coordinator)
             return
         }
+
+        if let firstViewController = fromViewController as? FirstViewController {
+            childDidFinish(firstViewController.coordinator)
+            return
+        }
     }
 }
