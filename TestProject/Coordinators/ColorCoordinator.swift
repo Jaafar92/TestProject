@@ -12,7 +12,7 @@ protocol ColorCoordinatorDelegate {
     func navigateToBananaView()
 }
 
-class ColorCoordinator : Coordinator {
+class ColorCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
     
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
@@ -35,6 +35,30 @@ class ColorCoordinator : Coordinator {
         let greenHostingController = GreenHostingViewController(view: view)
         greenHostingController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         self.navigationController.pushViewController(greenHostingController, animated: true)
+    }
+
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        // From ViewController is the ViewController that is being navigated "back" from
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else { return }
+
+        // If our NavigationController still has this ViewController in the list, that means we are moving forward and not backwards, thus we return
+        if navigationController.viewControllers.contains(fromViewController) {
+            return
+        }
+
+        // Now we check if "FromViewController" is the first ViewController of any of the possible child coordinators
+        if let greenHostingController = fromViewController as? BananaHostingViewController {
+            childDidFinish(greenHostingController.swiftUIView.rootView.viewModel.coordinator)
+        }
+    }
+
+    func childDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
     }
 }
 

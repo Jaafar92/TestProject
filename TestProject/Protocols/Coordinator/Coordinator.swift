@@ -31,13 +31,15 @@ extension Coordinator {
     func navigateBackToRootClearHistory() {
         self.navigationController.popToRootViewController(animated: true)
     }
-    
+
     func childDidFinish(_ child: Coordinator?) {
-        for (index, coordinator) in childCoordinators.enumerated() {
-            if coordinator === child {
-                childCoordinators.remove(at: index)
-                break
-            }
+
+        // Get the index of the child coordinator in its parent coordinators list of childCoordinators
+        let index = child?.parentCoordinator?.childCoordinators.firstIndex { coordinator in child === coordinator }
+
+        // Remove the child from the parent' list of childCoordinators
+        if let i = index {
+            child?.parentCoordinator?.childCoordinators.remove(at: i)
         }
     }
 

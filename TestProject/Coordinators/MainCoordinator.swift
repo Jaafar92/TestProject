@@ -36,11 +36,11 @@ class MainCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
         navigationController.pushViewController(firstViewController, animated: true)
         navigationController.delegate = self
     }
-    
+
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         // From ViewController is the ViewController that is being navigated "back" from
         guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else { return }
-        
+
         // If our NavigationController still has this ViewController in the list, that means we are moving forward and not backwards, thus we return
         if navigationController.viewControllers.contains(fromViewController) {
             return
@@ -49,6 +49,12 @@ class MainCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
         // Now we check if "FromViewController" is the first ViewController of any of the possible child coordinators
         if let greenHostingController = fromViewController as? GreenHostingViewController {
             childDidFinish(greenHostingController.swiftUIView.rootView.viewModel.coordinator)
+            return
+        }
+
+        if let bananaHostingController = fromViewController as? BananaHostingViewController {
+            childDidFinish(bananaHostingController.swiftUIView.rootView.viewModel.coordinator)
+            return
         }
     }
 }
