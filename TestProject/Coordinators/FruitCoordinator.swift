@@ -4,21 +4,9 @@
 
 import UIKit
 
-class FruitCoordinator: Coordinator {
-    var childCoordinators: [Coordinator] = []
-    var navigationController: UINavigationController
-
-    weak var parentCoordinator: Coordinator?
-
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
+class FruitCoordinator: BaseCoordinator {
     
-    deinit {
-        print("FruitCoordinator was de-initialized")
-    }
-
-    func start() {
+    override func start() {
         let viewModel = BananaViewModel()
         viewModel.coordinator = self
         let view = BananaView(viewModel: viewModel)

@@ -9,10 +9,14 @@ class YellowViewModel {
     weak var coordinator: ColorCoordinator?
     
     func navigateToRoot() {
-        coordinator?.navigateBackToRootClearHistory()
+        coordinator?.navigateBackToRootClearHistory(parent: coordinator?.parentCoordinator, child: coordinator)
     }
     
     func navigateToBananaView() {
         coordinator?.navigateToBananaView()
+    }
+    
+    func navigateToMainView() {
+        coordinator?.navigateToMainView()
     }
 }

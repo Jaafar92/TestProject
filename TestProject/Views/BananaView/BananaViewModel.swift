@@ -9,7 +9,6 @@ class BananaViewModel {
     weak var coordinator: FruitCoordinator?
     
     func navigateToRoot() {
-        coordinator?.navigateBackToRootClearHistory()
-        coordinator?.removeCoordinatorFromParent(coordinator?.parentCoordinator, coordinator)
+        coordinator?.navigateBackToRootClearHistory(parent: coordinator?.parentCoordinator, child: coordinator)
     }
 }

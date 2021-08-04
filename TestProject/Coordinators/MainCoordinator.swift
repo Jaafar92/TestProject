@@ -16,18 +16,9 @@ protocol MainCoordinatorDelegate: AnyObject {
     func navigateToGreenView()
 }
 
-class MainCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
+class MainCoordinator : BaseCoordinator {
     
-    var childCoordinators: [Coordinator] = []
-    var navigationController: UINavigationController
-
-    weak var parentCoordinator: Coordinator?
-    
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-    
-    func start() {
+    override func start() {
         let viewModel = FirstViewModel()
         viewModel.coordinator = self
         
@@ -35,27 +26,6 @@ class MainCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
         firstViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
         navigationController.pushViewController(firstViewController, animated: true)
         navigationController.delegate = self
-    }
-
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        // From ViewController is the ViewController that is being navigated "back" from
-        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else { return }
-
-        // If our NavigationController still has this ViewController in the list, that means we are moving forward and not backwards, thus we return
-        if navigationController.viewControllers.contains(fromViewController) {
-            return
-        }
-
-        // Now we check if "FromViewController" is the first ViewController of any of the possible child coordinators
-        if let greenHostingController = fromViewController as? GreenHostingViewController {
-            childDidFinish(greenHostingController.swiftUIView.rootView.viewModel.coordinator)
-            return
-        }
-
-        if let bananaHostingController = fromViewController as? BananaHostingViewController {
-            childDidFinish(bananaHostingController.swiftUIView.rootView.viewModel.coordinator)
-            return
-        }
     }
 }
 

@@ -25,7 +25,7 @@ class ForthViewModel : ObservableObject {
     }
     
     func navigateToRootNoHistory() {
-        coordinator?.navigateBackToRootClearHistory()
+        coordinator?.navigateBackToRootClearHistory(parent: coordinator?.parentCoordinator, child: coordinator)
     }
     
     func navigateToGreenView() {

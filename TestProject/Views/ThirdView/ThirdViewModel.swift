@@ -21,6 +21,6 @@ class ThirdViewModel {
     }
     
     func navigateBackNoHistory() {
-        coordinator?.navigateBackToRootClearHistory()
+        coordinator?.navigateBackToRootClearHistory(parent: coordinator?.parentCoordinator, child: coordinator)
     }
 }
