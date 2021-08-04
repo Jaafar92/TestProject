@@ -8,6 +8,7 @@
 import UIKit
 
 class BaseCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
+    private static var viewControllersDictionary : [UUID : BaseView] = [:]
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
 
@@ -70,21 +71,17 @@ class BaseCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
         if navigationController.viewControllers.contains(fromViewController) {
             return
         }
-
-        // Now we check if "FromViewController" is the first ViewController of any of the possible child coordinators
-        if let greenHostingController = fromViewController as? GreenHostingViewController {
-            childDidFinish(greenHostingController.swiftUIView.rootView.viewModel.coordinator)
-            return
+        
+        guard let fromViewController = fromViewController as? BaseView else { return }
+        
+        if let viewController = BaseCoordinator.viewControllersDictionary.removeValue(forKey: fromViewController.id) {
+            childDidFinish(viewController.coordinator)
+        } else {
+            print("Not in the dictionary")
         }
+    }
 
-        if let bananaHostingController = fromViewController as? BananaHostingViewController {
-            childDidFinish(bananaHostingController.swiftUIView.rootView.viewModel.coordinator)
-            return
-        }
-
-        if let firstViewController = fromViewController as? FirstViewController {
-            childDidFinish(firstViewController.coordinator)
-            return
-        }
+    func appendToDictionary(view: BaseView) {
+        BaseCoordinator.viewControllersDictionary[view.id] = view
     }
 }

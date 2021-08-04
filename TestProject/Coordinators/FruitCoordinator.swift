@@ -13,5 +13,8 @@ class FruitCoordinator: BaseCoordinator {
         
         let bananaHostingViewController = BananaHostingViewController(view: view)
         self.navigationController.pushViewController(bananaHostingViewController, animated: true)
+        
+        bananaHostingViewController.coordinator = self
+        appendToDictionary(view: bananaHostingViewController)
     }
 }

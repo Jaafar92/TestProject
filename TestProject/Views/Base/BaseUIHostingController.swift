@@ -8,8 +8,8 @@
 import UIKit
 import SwiftUI
 
-class BaseUIHostingController<T: View> : UIViewController {
-    
+class BaseUIHostingController<T: View> : BaseView {
+
     var swiftUIView : UIHostingController<T>
     
     init(view: T) {

@@ -26,6 +26,8 @@ class MainCoordinator : BaseCoordinator {
         firstViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
         navigationController.pushViewController(firstViewController, animated: true)
         navigationController.delegate = self
+        
+        appendToDictionary(view: firstViewController)
     }
 }
 

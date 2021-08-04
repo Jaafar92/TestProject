@@ -44,6 +44,7 @@
 		A9B01E9D2696E2B200411047 /* LayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E9C2696E2B200411047 /* LayoutFactory.swift */; };
 		A9B01EA02696E45000411047 /* TwoSidedTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E9F2696E45000411047 /* TwoSidedTextCell.swift */; };
 		BA66314B533D0BC6E0B78BA3 /* BananaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA663D8D6965FDACB4C65FA6 /* BananaViewModel.swift */; };
+		BA6633AA157E6A980E7067B9 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA663D6EB933EBB09CF80063 /* BaseView.swift */; };
 		BA663F21C573F030660C7D27 /* FruitCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA663EBDD525898C128D0668 /* FruitCoordinator.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		A9B01E9A2696E1E900411047 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A9B01E9C2696E2B200411047 /* LayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutFactory.swift; sourceTree = "<group>"; };
 		A9B01E9F2696E45000411047 /* TwoSidedTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSidedTextCell.swift; sourceTree = "<group>"; };
+		BA663D6EB933EBB09CF80063 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		BA663D8D6965FDACB4C65FA6 /* BananaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BananaViewModel.swift; sourceTree = "<group>"; };
 		BA663EBDD525898C128D0668 /* FruitCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +200,7 @@
 				A92E9E0026BAA01800D69CE8 /* ViewModel */,
 				A92E9DDA26B8279B00D69CE8 /* BaseUIViewController.swift */,
 				A92E9DE326B93FA500D69CE8 /* BaseUIHostingController.swift */,
+				BA663D6EB933EBB09CF80063 /* BaseView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				A92E9DDB26B8279B00D69CE8 /* BaseUIViewController.swift in Sources */,
 				BA663F21C573F030660C7D27 /* FruitCoordinator.swift in Sources */,
 				BA66314B533D0BC6E0B78BA3 /* BananaViewModel.swift in Sources */,
+				BA6633AA157E6A980E7067B9 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

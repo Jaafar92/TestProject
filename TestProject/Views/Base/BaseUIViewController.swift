@@ -8,13 +8,11 @@
 import UIKit
 import Combine
 
-class BaseUIViewController: UIViewController {
-    
+class BaseUIViewController: BaseView {
+
     deinit {
         print("\(String(describing: self)) was de-initialized")
     }
-
-    var coordinator : Coordinator?
 
     var bindings = Set<AnyCancellable>()
     
