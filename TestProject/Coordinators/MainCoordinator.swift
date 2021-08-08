@@ -27,7 +27,7 @@ class MainCoordinator : BaseCoordinator {
         navigationController.pushViewController(firstViewController, animated: true)
         navigationController.delegate = self
         
-        appendToDictionary(view: firstViewController)
+        registerStart(view: firstViewController, coordinator: self)
     }
 }
 
