@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ThirdViewController : UIViewController {
+class ThirdViewController : BaseUIViewController {
     
     weak var changeTextButton: UIButton!
     weak var navigateToNextPageButton: UIButton!
@@ -16,7 +16,6 @@ class ThirdViewController : UIViewController {
     weak var textContainerLabel: UILabel!
     
     private let viewModel: ThirdViewModel
-    private var bindings = Set<AnyCancellable>()
     
     init(viewModel: ThirdViewModel) {
         self.viewModel = viewModel
@@ -39,6 +38,13 @@ class ThirdViewController : UIViewController {
         setupConstraints()
     }
     
+    override func setUpBindings() {
+        viewModel.$text
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.text!, on: self.textContainerLabel)
+            .store(in: &bindings)
+    }
+    
     private func initializePageIndicatorLabel() {
         self.pageIndicatorLabel = LayoutFactory.getLabel(text: "Third View", parentView: self.view)
     }
@@ -53,13 +59,6 @@ class ThirdViewController : UIViewController {
         
         self.navigateToNextPageButton = LayoutFactory.getButton(title: "Back with no history", parentView: self.view)
         self.navigateToNextPageButton.addTarget(self, action: #selector(backNoHistory(_:)), for: .touchUpInside)
-    }
-    
-    private func setUpBindings() {
-        viewModel.$text
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.text!, on: self.textContainerLabel)
-            .store(in: &bindings)
     }
     
     @objc func goOneBack(_ sender: UIButton) {
