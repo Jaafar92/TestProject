@@ -14,6 +14,6 @@ class FruitCoordinator: BaseCoordinator {
         let bananaHostingViewController = BananaHostingViewController(view: view)
         self.navigationController.pushViewController(bananaHostingViewController, animated: true)
         
-        registerStart(view: bananaHostingViewController, coordinator: self)
+        registerStart(view: bananaHostingViewController)
     }
 }

@@ -26,11 +26,7 @@ class BaseCoordinator : NSObject, Coordinator, UINavigationControllerDelegate {
         // Leave empty. Should be overridden by subclasses
     }
     
-    func registerStart(view: BaseView, coordinator: Coordinator) {
-        if view.coordinator == nil {
-            view.coordinator = coordinator
-        }
-        
+    func registerStart(view: BaseView) {
         appendToDictionary(view: view)
     }
     

@@ -6,10 +6,7 @@
 //
 
 class FifthViewModel : BaseViewModel {
-    
-    weak var coordinator: MainCoordinator?
-    
     func dissmiss() {
-        coordinator?.dismiss()
+        (coordinator as? MainCoordinator)?.dismiss()
     }
 }

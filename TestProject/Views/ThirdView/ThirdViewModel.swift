@@ -10,17 +10,15 @@ import Combine
 class ThirdViewModel : BaseViewModel {
     @Published var text: String = ""
     
-    weak var coordinator: MainCoordinator?
-    
     func changeText() {
         self.text = "Third View"
     }
     
     func navigateOneBack() {
-        coordinator?.navigateBack()
+        (coordinator as? MainCoordinator)?.navigateBack()
     }
     
     func navigateBackNoHistory() {
-        coordinator?.navigateBackToRootClearHistory(parent: coordinator?.parentCoordinator, child: coordinator)
+        (coordinator as? MainCoordinator)?.navigateBackToRootClearHistory(parent: coordinator?.parentCoordinator, child: coordinator)
     }
 }

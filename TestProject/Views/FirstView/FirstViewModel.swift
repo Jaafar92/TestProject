@@ -10,13 +10,11 @@ import Combine
 class FirstViewModel : BaseViewModel {
     @Published var text: String = ""
     
-    weak var coordinator: MainCoordinator?
-    
     func changeText() {
         self.text = "Hello World"
     }
     
     func navigateToSecondView() {
-        coordinator?.navigateToSecondView()
+        (coordinator as? MainCoordinator)?.navigateToSecondView()
     }
 }

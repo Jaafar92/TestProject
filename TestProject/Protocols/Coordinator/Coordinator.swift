@@ -34,7 +34,7 @@ protocol Coordinator: AnyObject {
     /**
      This function registers the BaseView (UIViewController) in a Dictionary. This is later used to clean up, so the coordinator can be garbage collected.
      */
-    func registerStart(view: BaseView, coordinator: Coordinator)
+    func registerStart(view: BaseView)
     
     /**
      This is the genric way of dismissing a modal of any type.

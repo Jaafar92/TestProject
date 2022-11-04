@@ -6,10 +6,7 @@
 //
 
 class GreenViewModel : BaseViewModel {
-        
-    weak var coordinator: ColorCoordinator?
-    
     func navigateToYellowView() {
-        coordinator?.navigateToYellowView()
+        (coordinator as? ColorCoordinator)?.navigateToYellowView()
     }
 }

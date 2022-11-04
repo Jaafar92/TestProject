@@ -27,7 +27,7 @@ class MainCoordinator : BaseCoordinator {
         navigationController.pushViewController(firstViewController, animated: true)
         navigationController.delegate = self
         
-        registerStart(view: firstViewController, coordinator: self)
+        registerStart(view: firstViewController)
     }
 }
 

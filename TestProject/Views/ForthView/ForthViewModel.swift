@@ -10,29 +10,27 @@ import Combine
 class ForthViewModel : BaseViewModel, ObservableObject {
     @Published var text: String = "Forth View"
     
-    weak var coordinator: MainCoordinator?
-    
     func changeText() {
         self.text = "Changed text in SwiftUI and Combine"
     }
     
     func navigateToThirdView() {
-        coordinator?.navigateToThirdView()
+        (coordinator as? MainCoordinator)?.navigateToThirdView()
     }
     
     func navigateOneBack() {
-        coordinator?.navigateBack()
+        (coordinator as? MainCoordinator)?.navigateBack()
     }
     
     func navigateToRootNoHistory() {
-        coordinator?.navigateBackToRootClearHistory(parent: coordinator?.parentCoordinator, child: coordinator)
+        (coordinator as? MainCoordinator)?.navigateBackToRootClearHistory(parent: coordinator?.parentCoordinator, child: coordinator)
     }
     
     func navigateToGreenView() {
-        coordinator?.navigateToGreenView()
+        (coordinator as? MainCoordinator)?.navigateToGreenView()
     }
     
     func navigateToFifthView() {
-        coordinator?.navigateToFifthView()
+        (coordinator as? MainCoordinator)?.navigateToFifthView()
     }
 }

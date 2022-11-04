@@ -8,6 +8,8 @@
 import Foundation
 
 class BaseViewModel {
+    weak var coordinator: Coordinator?
+    
     deinit {
         print("\(String(describing: self)) was de-initialized")
     }
