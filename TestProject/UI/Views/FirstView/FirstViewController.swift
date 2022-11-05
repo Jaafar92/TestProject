@@ -68,7 +68,9 @@ class FirstViewController: BaseUIViewController {
     }
     
     @objc func changeTextCommand(_ sender: UIButton) {
-        viewModel?.changeText()
+        Task {
+          try await viewModel?.changeText()
+        }
     }
     
     @objc func nextPageCommand(_ sender: UIButton) {

@@ -10,8 +10,16 @@ import Combine
 class FirstViewModel : BaseViewModel {
     @Published var text: String = ""
     
-    func changeText() {
+    func changeText() async throws {
         self.text = "Hello World"
+        let repository = MitElRepository()
+        
+        do {
+           try await repository.getSpotPricesForPeriod()
+        }
+        catch {
+            print(error.localizedDescription)
+        }
     }
     
     func navigateToSecondView() {
