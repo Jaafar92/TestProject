@@ -1,11 +1,10 @@
-//
-//  GreenViewModel.swift
-//  TestProject
-//
-//  Created by Jaafar on 03/08/2021.
-//
+import CoordinatorNavigation
 
 class GreenViewModel : BaseViewModel {
+    
+    override init() {
+    }
+    
     func navigateToYellowView() {
         (coordinator as? ColorCoordinator)?.navigateToYellowView()
     }

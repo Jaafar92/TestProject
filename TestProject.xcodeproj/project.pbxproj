@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A9107E3A26B2C18500116AEF /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E3926B2C18500116AEF /* FirstViewModel.swift */; };
-		A9107E3E26B4036800116AEF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E3D26B4036800116AEF /* Coordinator.swift */; };
 		A9107E4126B42BEA00116AEF /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E4026B42BEA00116AEF /* MainCoordinator.swift */; };
 		A9107E4426B4359F00116AEF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E4326B4359F00116AEF /* SecondViewController.swift */; };
 		A9107E4626B4361800116AEF /* SecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E4526B4361800116AEF /* SecondViewModel.swift */; };
@@ -19,22 +18,15 @@
 		A9107E5F26B6836D00116AEF /* FifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E5E26B6836D00116AEF /* FifthView.swift */; };
 		A9107E6326B6839700116AEF /* FifthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9107E6226B6839700116AEF /* FifthViewModel.swift */; };
 		A922EB302915A63F0083B773 /* MitElRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922EB2F2915A63F0083B773 /* MitElRepository.swift */; };
-		A92E9DDB26B8279B00D69CE8 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DDA26B8279B00D69CE8 /* BaseUIViewController.swift */; };
+		A922EB7F2916EDB10083B773 /* CoordinatorNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A922EB7B2916ED670083B773 /* CoordinatorNavigation.framework */; };
+		A922EB802916EDB10083B773 /* CoordinatorNavigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A922EB7B2916ED670083B773 /* CoordinatorNavigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A92E9DE226B91F8D00D69CE8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DE126B91F8D00D69CE8 /* MainTabBarController.swift */; };
-		A92E9DE426B93FA500D69CE8 /* BaseUIHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DE326B93FA500D69CE8 /* BaseUIHostingController.swift */; };
 		A92E9DEB26B9461B00D69CE8 /* ColorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DEA26B9461B00D69CE8 /* ColorCoordinator.swift */; };
 		A92E9DEF26B9475D00D69CE8 /* GreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DEE26B9475D00D69CE8 /* GreenViewModel.swift */; };
 		A92E9DF126B9476700D69CE8 /* GreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF026B9476700D69CE8 /* GreenView.swift */; };
 		A92E9DF426B949C200D69CE8 /* YellowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF326B949C200D69CE8 /* YellowView.swift */; };
 		A92E9DF626B949E100D69CE8 /* YellowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF526B949E100D69CE8 /* YellowViewModel.swift */; };
-		A92E9DF826B95E1D00D69CE8 /* GreenHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF726B95E1D00D69CE8 /* GreenHostingViewController.swift */; };
 		A92E9DFA26B99D4F00D69CE8 /* BananaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF926B99D4F00D69CE8 /* BananaView.swift */; };
-		A92E9DFC26B99D9B00D69CE8 /* BananaHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DFB26B99D9B00D69CE8 /* BananaHostingViewController.swift */; };
-		A92E9DFF26BA905200D69CE8 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DFE26BA905200D69CE8 /* BaseCoordinator.swift */; };
-		A92E9E0226BAA02300D69CE8 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9E0126BAA02300D69CE8 /* BaseViewModel.swift */; };
-		A92E9E0426BAA4F400D69CE8 /* ForthHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9E0326BAA4F400D69CE8 /* ForthHostingViewController.swift */; };
-		A92E9E0626BAA52A00D69CE8 /* FifthHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9E0526BAA52A00D69CE8 /* FifthHostingViewController.swift */; };
-		A92E9E0826BAA55A00D69CE8 /* YellowHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9E0726BAA55A00D69CE8 /* YellowHostingViewController.swift */; };
 		A9B01E842696E14900411047 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E832696E14900411047 /* AppDelegate.swift */; };
 		A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E852696E14900411047 /* SceneDelegate.swift */; };
 		A9B01E882696E14900411047 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E872696E14900411047 /* FirstViewController.swift */; };
@@ -44,13 +36,42 @@
 		A9B01E9B2696E1E900411047 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E9A2696E1E900411047 /* Constants.swift */; };
 		A9B01E9D2696E2B200411047 /* LayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E9C2696E2B200411047 /* LayoutFactory.swift */; };
 		BA66314B533D0BC6E0B78BA3 /* BananaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA663D8D6965FDACB4C65FA6 /* BananaViewModel.swift */; };
-		BA6633AA157E6A980E7067B9 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA663D6EB933EBB09CF80063 /* BaseView.swift */; };
 		BA663F21C573F030660C7D27 /* FruitCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA663EBDD525898C128D0668 /* FruitCoordinator.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A922EB7A2916ED670083B773 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A922EB752916ED670083B773 /* CoordinatorNavigation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A922EB3B2916E0C50083B773;
+			remoteInfo = CoordinatorNavigation;
+		};
+		A922EB7C2916ED670083B773 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A922EB752916ED670083B773 /* CoordinatorNavigation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A922EB452916E0C50083B773;
+			remoteInfo = CoordinatorNavigationTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A922EB812916EDB10083B773 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A922EB802916EDB10083B773 /* CoordinatorNavigation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A9107E3926B2C18500116AEF /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
-		A9107E3D26B4036800116AEF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A9107E4026B42BEA00116AEF /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A9107E4326B4359F00116AEF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		A9107E4526B4361800116AEF /* SecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewModel.swift; sourceTree = "<group>"; };
@@ -61,22 +82,14 @@
 		A9107E5E26B6836D00116AEF /* FifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthView.swift; sourceTree = "<group>"; };
 		A9107E6226B6839700116AEF /* FifthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewModel.swift; sourceTree = "<group>"; };
 		A922EB2F2915A63F0083B773 /* MitElRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitElRepository.swift; sourceTree = "<group>"; };
-		A92E9DDA26B8279B00D69CE8 /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		A922EB752916ED670083B773 /* CoordinatorNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoordinatorNavigation.xcodeproj; path = ../CoordinatorNavigation/CoordinatorNavigation.xcodeproj; sourceTree = "<group>"; };
 		A92E9DE126B91F8D00D69CE8 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		A92E9DE326B93FA500D69CE8 /* BaseUIHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIHostingController.swift; sourceTree = "<group>"; };
 		A92E9DEA26B9461B00D69CE8 /* ColorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCoordinator.swift; sourceTree = "<group>"; };
 		A92E9DEE26B9475D00D69CE8 /* GreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewModel.swift; sourceTree = "<group>"; };
 		A92E9DF026B9476700D69CE8 /* GreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenView.swift; sourceTree = "<group>"; };
 		A92E9DF326B949C200D69CE8 /* YellowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowView.swift; sourceTree = "<group>"; };
 		A92E9DF526B949E100D69CE8 /* YellowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewModel.swift; sourceTree = "<group>"; };
-		A92E9DF726B95E1D00D69CE8 /* GreenHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenHostingViewController.swift; sourceTree = "<group>"; };
 		A92E9DF926B99D4F00D69CE8 /* BananaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaView.swift; sourceTree = "<group>"; };
-		A92E9DFB26B99D9B00D69CE8 /* BananaHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaHostingViewController.swift; sourceTree = "<group>"; };
-		A92E9DFE26BA905200D69CE8 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
-		A92E9E0126BAA02300D69CE8 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		A92E9E0326BAA4F400D69CE8 /* ForthHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthHostingViewController.swift; sourceTree = "<group>"; };
-		A92E9E0526BAA52A00D69CE8 /* FifthHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthHostingViewController.swift; sourceTree = "<group>"; };
-		A92E9E0726BAA55A00D69CE8 /* YellowHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowHostingViewController.swift; sourceTree = "<group>"; };
 		A9B01E802696E14900411047 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B01E832696E14900411047 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B01E852696E14900411047 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +100,6 @@
 		A9B01E982696E1B000411047 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		A9B01E9A2696E1E900411047 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A9B01E9C2696E2B200411047 /* LayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutFactory.swift; sourceTree = "<group>"; };
-		BA663D6EB933EBB09CF80063 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		BA663D8D6965FDACB4C65FA6 /* BananaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BananaViewModel.swift; sourceTree = "<group>"; };
 		BA663EBDD525898C128D0668 /* FruitCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A922EB7F2916EDB10083B773 /* CoordinatorNavigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +119,6 @@
 		A9107E3626B2BDE900116AEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A92E9DD926B8278300D69CE8 /* Base */,
 				A92E9DE026B91F7A00D69CE8 /* TabBarController */,
 				A92E9DF226B9499900D69CE8 /* YellowView */,
 				A92E9DED26B9472400D69CE8 /* GreenView */,
@@ -128,27 +140,9 @@
 			path = FirstView;
 			sourceTree = "<group>";
 		};
-		A9107E3B26B4035200116AEF /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				A9107E3C26B4035800116AEF /* Coordinator */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		A9107E3C26B4035800116AEF /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				A9107E3D26B4036800116AEF /* Coordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
 		A9107E3F26B42BD800116AEF /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				A9107E3B26B4035200116AEF /* Protocols */,
-				A92E9DFD26BA904500D69CE8 /* Base */,
 				A9107E4026B42BEA00116AEF /* MainCoordinator.swift */,
 				A92E9DEA26B9461B00D69CE8 /* ColorCoordinator.swift */,
 				BA663EBDD525898C128D0668 /* FruitCoordinator.swift */,
@@ -176,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				A9107E5526B562E900116AEF /* ForthView.swift */,
-				A92E9E0326BAA4F400D69CE8 /* ForthHostingViewController.swift */,
 			);
 			path = ForthView;
 			sourceTree = "<group>";
@@ -185,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				A9107E5E26B6836D00116AEF /* FifthView.swift */,
-				A92E9E0526BAA52A00D69CE8 /* FifthHostingViewController.swift */,
 			);
 			path = FifthView;
 			sourceTree = "<group>";
@@ -228,7 +220,6 @@
 		A922EB2D2915A48A0083B773 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				A92E9E0126BAA02300D69CE8 /* BaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -241,14 +232,20 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		A92E9DD926B8278300D69CE8 /* Base */ = {
+		A922EB762916ED670083B773 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A92E9DDA26B8279B00D69CE8 /* BaseUIViewController.swift */,
-				A92E9DE326B93FA500D69CE8 /* BaseUIHostingController.swift */,
-				BA663D6EB933EBB09CF80063 /* BaseView.swift */,
+				A922EB7B2916ED670083B773 /* CoordinatorNavigation.framework */,
+				A922EB7D2916ED670083B773 /* CoordinatorNavigationTests.xctest */,
 			);
-			path = Base;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A922EB7E2916EDA70083B773 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A92E9DE026B91F7A00D69CE8 /* TabBarController */ = {
@@ -263,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				A92E9DF026B9476700D69CE8 /* GreenView.swift */,
-				A92E9DF726B95E1D00D69CE8 /* GreenHostingViewController.swift */,
 			);
 			path = GreenView;
 			sourceTree = "<group>";
@@ -272,24 +268,17 @@
 			isa = PBXGroup;
 			children = (
 				A92E9DF326B949C200D69CE8 /* YellowView.swift */,
-				A92E9E0726BAA55A00D69CE8 /* YellowHostingViewController.swift */,
 			);
 			path = YellowView;
-			sourceTree = "<group>";
-		};
-		A92E9DFD26BA904500D69CE8 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				A92E9DFE26BA905200D69CE8 /* BaseCoordinator.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		A9B01E772696E14900411047 = {
 			isa = PBXGroup;
 			children = (
+				A922EB752916ED670083B773 /* CoordinatorNavigation.xcodeproj */,
 				A9B01E822696E14900411047 /* TestProject */,
 				A9B01E812696E14900411047 /* Products */,
+				A922EB7E2916EDA70083B773 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -329,7 +318,6 @@
 			isa = PBXGroup;
 			children = (
 				A92E9DF926B99D4F00D69CE8 /* BananaView.swift */,
-				A92E9DFB26B99D9B00D69CE8 /* BananaHostingViewController.swift */,
 			);
 			path = BananaView;
 			sourceTree = "<group>";
@@ -344,6 +332,7 @@
 				A9B01E7C2696E14900411047 /* Sources */,
 				A9B01E7D2696E14900411047 /* Frameworks */,
 				A9B01E7E2696E14900411047 /* Resources */,
+				A922EB812916EDB10083B773 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -379,12 +368,35 @@
 			mainGroup = A9B01E772696E14900411047;
 			productRefGroup = A9B01E812696E14900411047 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A922EB762916ED670083B773 /* Products */;
+					ProjectRef = A922EB752916ED670083B773 /* CoordinatorNavigation.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A9B01E7F2696E14900411047 /* TestProject */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A922EB7B2916ED670083B773 /* CoordinatorNavigation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CoordinatorNavigation.framework;
+			remoteRef = A922EB7A2916ED670083B773 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A922EB7D2916ED670083B773 /* CoordinatorNavigationTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CoordinatorNavigationTests.xctest;
+			remoteRef = A922EB7C2916ED670083B773 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A9B01E7E2696E14900411047 /* Resources */ = {
@@ -406,7 +418,6 @@
 				A9107E4426B4359F00116AEF /* SecondViewController.swift in Sources */,
 				A92E9DEF26B9475D00D69CE8 /* GreenViewModel.swift in Sources */,
 				A9107E5626B562E900116AEF /* ForthView.swift in Sources */,
-				A92E9DFC26B99D9B00D69CE8 /* BananaHostingViewController.swift in Sources */,
 				A9B01E9D2696E2B200411047 /* LayoutFactory.swift in Sources */,
 				A9107E5F26B6836D00116AEF /* FifthView.swift in Sources */,
 				A92E9DF126B9476700D69CE8 /* GreenView.swift in Sources */,
@@ -415,31 +426,21 @@
 				A92E9DE226B91F8D00D69CE8 /* MainTabBarController.swift in Sources */,
 				A92E9DF626B949E100D69CE8 /* YellowViewModel.swift in Sources */,
 				A9107E4626B4361800116AEF /* SecondViewModel.swift in Sources */,
-				A92E9DE426B93FA500D69CE8 /* BaseUIHostingController.swift in Sources */,
 				A9B01E9B2696E1E900411047 /* Constants.swift in Sources */,
-				A92E9DFF26BA905200D69CE8 /* BaseCoordinator.swift in Sources */,
 				A9107E4F26B54C7A00116AEF /* ThirdViewModel.swift in Sources */,
 				A9107E5C26B573D300116AEF /* ForthViewModel.swift in Sources */,
-				A92E9E0626BAA52A00D69CE8 /* FifthHostingViewController.swift in Sources */,
 				A9107E4D26B54C7200116AEF /* ThirdViewController.swift in Sources */,
 				A9107E6326B6839700116AEF /* FifthViewModel.swift in Sources */,
 				A9107E4126B42BEA00116AEF /* MainCoordinator.swift in Sources */,
 				A92E9DFA26B99D4F00D69CE8 /* BananaView.swift in Sources */,
 				A9B01E882696E14900411047 /* FirstViewController.swift in Sources */,
-				A92E9E0226BAA02300D69CE8 /* BaseViewModel.swift in Sources */,
 				A922EB302915A63F0083B773 /* MitElRepository.swift in Sources */,
-				A92E9E0426BAA4F400D69CE8 /* ForthHostingViewController.swift in Sources */,
 				A9B01E992696E1B000411047 /* Layout.swift in Sources */,
 				A9B01E842696E14900411047 /* AppDelegate.swift in Sources */,
 				A92E9DF426B949C200D69CE8 /* YellowView.swift in Sources */,
-				A92E9E0826BAA55A00D69CE8 /* YellowHostingViewController.swift in Sources */,
 				A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */,
-				A9107E3E26B4036800116AEF /* Coordinator.swift in Sources */,
-				A92E9DF826B95E1D00D69CE8 /* GreenHostingViewController.swift in Sources */,
-				A92E9DDB26B8279B00D69CE8 /* BaseUIViewController.swift in Sources */,
 				BA663F21C573F030660C7D27 /* FruitCoordinator.swift in Sources */,
 				BA66314B533D0BC6E0B78BA3 /* BananaViewModel.swift in Sources */,
-				BA6633AA157E6A980E7067B9 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

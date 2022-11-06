@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import CoordinatorNavigation
 
 class FruitCoordinator: BaseCoordinator {
     
@@ -11,7 +12,7 @@ class FruitCoordinator: BaseCoordinator {
         viewModel.coordinator = self
         let view = BananaView(viewModel: viewModel)
         
-        let bananaHostingViewController = BananaHostingViewController(view: view)
+        let bananaHostingViewController = BaseUIHostingController.createHostingController(view: view)
         self.navigationController.pushViewController(bananaHostingViewController, animated: true)
         
         registerStart(view: bananaHostingViewController)

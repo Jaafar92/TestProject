@@ -1,11 +1,5 @@
-//
-//  FirstViewCoordinator.swift
-//  TestProject
-//
-//  Created by Jaafar on 30/07/2021.
-//
-
 import UIKit
+import CoordinatorNavigation
 
 protocol MainCoordinatorDelegate: AnyObject {
     func navigateToSecondView()
@@ -54,7 +48,7 @@ extension MainCoordinator : MainCoordinatorDelegate {
         viewModel.coordinator = self
         let view = ForthView(viewModel: viewModel)
         
-        let forthViewHostingController = ForthHostingViewController(view: view)
+        let forthViewHostingController = BaseUIHostingController.createHostingController(view: view)
         self.navigationController.pushViewController(forthViewHostingController, animated: true)
     }
     
@@ -63,7 +57,7 @@ extension MainCoordinator : MainCoordinatorDelegate {
         viewModel.coordinator = self
         let view = FifthView(viewModel: viewModel)
         
-        let fifthViewHostingController = FifthHostingViewController(view: view)
+        let fifthViewHostingController = BaseUIHostingController.createHostingController(view: view)
         self.navigationController.present(fifthViewHostingController, animated: true, completion: nil)
     }
     

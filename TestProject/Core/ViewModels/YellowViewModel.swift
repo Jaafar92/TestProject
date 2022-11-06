@@ -1,9 +1,4 @@
-//
-//  YellowViewModel.swift
-//  TestProject
-//
-//  Created by Jaafar on 03/08/2021.
-//
+import CoordinatorNavigation
 
 class YellowViewModel : BaseViewModel {
     func navigateToRoot() {

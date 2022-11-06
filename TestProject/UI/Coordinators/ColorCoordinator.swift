@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoordinatorNavigation
 
 protocol ColorCoordinatorDelegate {
     func navigateToYellowView()
@@ -20,7 +21,7 @@ class ColorCoordinator : BaseCoordinator {
         viewModel.coordinator = self
         let view = GreenView(viewModel: viewModel)
         
-        let greenHostingController = GreenHostingViewController(view: view)
+        let greenHostingController = BaseUIHostingController.createHostingController(view: view)
         greenHostingController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         self.navigationController.pushViewController(greenHostingController, animated: true)
         
@@ -34,7 +35,7 @@ extension ColorCoordinator : ColorCoordinatorDelegate {
         viewModel.coordinator = self
         let view = YellowView(viewModel: viewModel)
         
-        let yellowHostingController = YellowHostingViewController(view: view)
+        let yellowHostingController = BaseUIHostingController.createHostingController(view: view)
         self.navigationController.pushViewController(yellowHostingController, animated: true)
     }
     

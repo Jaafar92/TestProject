@@ -1,11 +1,5 @@
-//
-//  ThirdViewModel.swift
-//  TestProject
-//
-//  Created by Jaafar on 31/07/2021.
-//
-
 import Combine
+import CoordinatorNavigation
 
 class ThirdViewModel : BaseViewModel {
     @Published var text: String = ""

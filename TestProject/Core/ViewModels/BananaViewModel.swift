@@ -1,10 +1,8 @@
-//
-// Created by Jaafar on 03/08/2021.
-//
-
 import Foundation
+import CoordinatorNavigation
 
 class BananaViewModel : BaseViewModel {
+    
     func navigateToRoot() {
         (coordinator as? FruitCoordinator)?.navigateBackToRootClearHistory(parent: coordinator?.parentCoordinator, child: coordinator)
     }

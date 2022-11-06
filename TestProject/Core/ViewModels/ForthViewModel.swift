@@ -1,11 +1,5 @@
-//
-//  ForthViewModel.swift
-//  TestProject
-//
-//  Created by Jaafar on 31/07/2021.
-//
-
 import Combine
+import CoordinatorNavigation
 
 class ForthViewModel : BaseViewModel, ObservableObject {
     @Published var text: String = "Forth View"

@@ -1,11 +1,5 @@
-//
-//  SecondViewModel.swift
-//  TestProject
-//
-//  Created by Jaafar on 30/07/2021.
-//
-
 import Combine
+import CoordinatorNavigation
 
 class SecondViewModel : BaseViewModel {
     @Published var text: String = ""

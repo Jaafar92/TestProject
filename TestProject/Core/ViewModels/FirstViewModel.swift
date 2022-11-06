@@ -1,11 +1,5 @@
-//
-//  FirstViewViewModel.swift
-//  TestProject
-//
-//  Created by Jaafar on 29/07/2021.
-//
-
 import Combine
+import CoordinatorNavigation
 
 class FirstViewModel : BaseViewModel {
     @Published var text: String = ""
