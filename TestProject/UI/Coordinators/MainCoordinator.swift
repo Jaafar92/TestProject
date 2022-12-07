@@ -17,7 +17,7 @@ class MainCoordinator : BaseCoordinator {
         viewModel.coordinator = self
         
         let firstViewController = FirstViewController(viewModel: viewModel)
-        firstViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+        firstViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         navigationController.pushViewController(firstViewController, animated: true)
         navigationController.delegate = self
         

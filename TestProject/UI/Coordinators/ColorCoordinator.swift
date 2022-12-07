@@ -22,7 +22,7 @@ class ColorCoordinator : BaseCoordinator {
         let view = GreenView(viewModel: viewModel)
         
         let greenHostingController = BaseUIHostingController.createHostingController(view: view)
-        greenHostingController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+        greenHostingController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 2)
         self.navigationController.pushViewController(greenHostingController, animated: true)
         
         registerStart(view: greenHostingController)

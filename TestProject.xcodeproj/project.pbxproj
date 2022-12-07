@@ -27,6 +27,11 @@
 		A92E9DF426B949C200D69CE8 /* YellowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF326B949C200D69CE8 /* YellowView.swift */; };
 		A92E9DF626B949E100D69CE8 /* YellowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF526B949E100D69CE8 /* YellowViewModel.swift */; };
 		A92E9DFA26B99D4F00D69CE8 /* BananaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E9DF926B99D4F00D69CE8 /* BananaView.swift */; };
+		A933554D2941276800E74DD0 /* UwbCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933554C2941276800E74DD0 /* UwbCoordinator.swift */; };
+		A9335551294127C000E74DD0 /* UwbMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9335550294127C000E74DD0 /* UwbMainViewModel.swift */; };
+		A93355562941284900E74DD0 /* UwbMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93355552941284900E74DD0 /* UwbMainView.swift */; };
+		A933555929412A8200E74DD0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A933555729412A7900E74DD0 /* CoreBluetooth.framework */; };
+		A933555C29412A9D00E74DD0 /* NearbyInteraction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A933555B29412A9D00E74DD0 /* NearbyInteraction.framework */; };
 		A9B01E842696E14900411047 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E832696E14900411047 /* AppDelegate.swift */; };
 		A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E852696E14900411047 /* SceneDelegate.swift */; };
 		A9B01E882696E14900411047 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E872696E14900411047 /* FirstViewController.swift */; };
@@ -90,6 +95,11 @@
 		A92E9DF326B949C200D69CE8 /* YellowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowView.swift; sourceTree = "<group>"; };
 		A92E9DF526B949E100D69CE8 /* YellowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewModel.swift; sourceTree = "<group>"; };
 		A92E9DF926B99D4F00D69CE8 /* BananaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaView.swift; sourceTree = "<group>"; };
+		A933554C2941276800E74DD0 /* UwbCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbCoordinator.swift; sourceTree = "<group>"; };
+		A9335550294127C000E74DD0 /* UwbMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbMainViewModel.swift; sourceTree = "<group>"; };
+		A93355552941284900E74DD0 /* UwbMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbMainView.swift; sourceTree = "<group>"; };
+		A933555729412A7900E74DD0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		A933555B29412A9D00E74DD0 /* NearbyInteraction.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NearbyInteraction.framework; path = System/Library/Frameworks/NearbyInteraction.framework; sourceTree = SDKROOT; };
 		A9B01E802696E14900411047 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B01E832696E14900411047 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B01E852696E14900411047 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A933555C29412A9D00E74DD0 /* NearbyInteraction.framework in Frameworks */,
+				A933555929412A8200E74DD0 /* CoreBluetooth.framework in Frameworks */,
 				A922EB7F2916EDB10083B773 /* CoordinatorNavigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +131,7 @@
 		A9107E3626B2BDE900116AEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A9335552294127FE00E74DD0 /* UwbMainView */,
 				A92E9DE026B91F7A00D69CE8 /* TabBarController */,
 				A92E9DF226B9499900D69CE8 /* YellowView */,
 				A92E9DED26B9472400D69CE8 /* GreenView */,
@@ -146,6 +159,7 @@
 				A9107E4026B42BEA00116AEF /* MainCoordinator.swift */,
 				A92E9DEA26B9461B00D69CE8 /* ColorCoordinator.swift */,
 				BA663EBDD525898C128D0668 /* FruitCoordinator.swift */,
+				A933554C2941276800E74DD0 /* UwbCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -213,6 +227,7 @@
 				A9107E4E26B54C7A00116AEF /* ThirdViewModel.swift */,
 				A9107E4526B4361800116AEF /* SecondViewModel.swift */,
 				A9107E3926B2C18500116AEF /* FirstViewModel.swift */,
+				A9335550294127C000E74DD0 /* UwbMainViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -244,6 +259,8 @@
 		A922EB7E2916EDA70083B773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A933555B29412A9D00E74DD0 /* NearbyInteraction.framework */,
+				A933555729412A7900E74DD0 /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -270,6 +287,14 @@
 				A92E9DF326B949C200D69CE8 /* YellowView.swift */,
 			);
 			path = YellowView;
+			sourceTree = "<group>";
+		};
+		A9335552294127FE00E74DD0 /* UwbMainView */ = {
+			isa = PBXGroup;
+			children = (
+				A93355552941284900E74DD0 /* UwbMainView.swift */,
+			);
+			path = UwbMainView;
 			sourceTree = "<group>";
 		};
 		A9B01E772696E14900411047 = {
@@ -424,9 +449,11 @@
 				A9107E3A26B2C18500116AEF /* FirstViewModel.swift in Sources */,
 				A92E9DEB26B9461B00D69CE8 /* ColorCoordinator.swift in Sources */,
 				A92E9DE226B91F8D00D69CE8 /* MainTabBarController.swift in Sources */,
+				A93355562941284900E74DD0 /* UwbMainView.swift in Sources */,
 				A92E9DF626B949E100D69CE8 /* YellowViewModel.swift in Sources */,
 				A9107E4626B4361800116AEF /* SecondViewModel.swift in Sources */,
 				A9B01E9B2696E1E900411047 /* Constants.swift in Sources */,
+				A933554D2941276800E74DD0 /* UwbCoordinator.swift in Sources */,
 				A9107E4F26B54C7A00116AEF /* ThirdViewModel.swift in Sources */,
 				A9107E5C26B573D300116AEF /* ForthViewModel.swift in Sources */,
 				A9107E4D26B54C7200116AEF /* ThirdViewController.swift in Sources */,
@@ -438,6 +465,7 @@
 				A9B01E992696E1B000411047 /* Layout.swift in Sources */,
 				A9B01E842696E14900411047 /* AppDelegate.swift in Sources */,
 				A92E9DF426B949C200D69CE8 /* YellowView.swift in Sources */,
+				A9335551294127C000E74DD0 /* UwbMainViewModel.swift in Sources */,
 				A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */,
 				BA663F21C573F030660C7D27 /* FruitCoordinator.swift in Sources */,
 				BA66314B533D0BC6E0B78BA3 /* BananaViewModel.swift in Sources */,
