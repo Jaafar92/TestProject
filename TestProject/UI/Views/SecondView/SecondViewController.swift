@@ -28,7 +28,6 @@ class SecondViewController: BaseUIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.view.backgroundColor = .white
         
         initializePageIndicatorLabel()
@@ -36,6 +35,7 @@ class SecondViewController: BaseUIViewController {
         initializeButtons()
         
         setupConstraints()
+        super.viewDidLoad()
     }
     
     private func initializePageIndicatorLabel() {

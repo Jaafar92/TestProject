@@ -29,6 +29,7 @@ extension MainCoordinator : MainCoordinatorDelegate {
 
     func navigateToSecondView() {
         let viewModel = SecondViewModel()
+        viewModel.text = "Hello World!"
         viewModel.coordinator = self
         
         let secondViewController = SecondViewController(viewModel: viewModel)

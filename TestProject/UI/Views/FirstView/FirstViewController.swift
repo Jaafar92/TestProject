@@ -32,7 +32,6 @@ class FirstViewController: BaseUIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.view.backgroundColor = .white
         
         initializePageIndicatorLabel()
@@ -40,6 +39,7 @@ class FirstViewController: BaseUIViewController {
         initializeButtons()
         
         setupConstraints()
+        super.viewDidLoad()
     }
     
     override func setUpBindings() {
