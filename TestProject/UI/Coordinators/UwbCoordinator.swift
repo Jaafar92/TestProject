@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 import CoordinatorNavigation
 
+protocol UwbCoordinatorDelegate {
+    func navigateToProductPage(product: BleProduct, communicationChannel: DataCommunicationChannel)
+}
+
 class UwbCoordinator : BaseCoordinator {
     
     override func start() {
@@ -21,5 +25,19 @@ class UwbCoordinator : BaseCoordinator {
         self.navigationController.pushViewController(uwbHostingController, animated: true)
         
         registerStart(view: uwbHostingController)
+    }
+}
+
+extension UwbCoordinator : UwbCoordinatorDelegate {
+    func navigateToProductPage(product: BleProduct, communicationChannel: DataCommunicationChannel) {
+        let viewModel = UwbProductViewModel()
+        viewModel.dataCommunicationChannel = communicationChannel
+        viewModel.product = product
+        viewModel.setupHandlers()
+        viewModel.coordinator = self
+        let view = UwbProductView(viewModel: viewModel)
+        
+        let hostingController = BaseUIHostingController.createHostingController(view: view)
+        self.navigationController.pushViewController(hostingController, animated: true)
     }
 }

@@ -32,6 +32,12 @@
 		A93355562941284900E74DD0 /* UwbMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93355552941284900E74DD0 /* UwbMainView.swift */; };
 		A933555929412A8200E74DD0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A933555729412A7900E74DD0 /* CoreBluetooth.framework */; };
 		A933555C29412A9D00E74DD0 /* NearbyInteraction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A933555B29412A9D00E74DD0 /* NearbyInteraction.framework */; };
+		A933555F2941300000E74DD0 /* UwbConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933555E2941300000E74DD0 /* UwbConstants.swift */; };
+		A93355632941312900E74DD0 /* DataCommunicationChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93355622941312900E74DD0 /* DataCommunicationChannel.swift */; };
+		A9335567294361C400E74DD0 /* BleProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9335566294361C400E74DD0 /* BleProduct.swift */; };
+		A933556A29436A0F00E74DD0 /* BleProductItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933556929436A0F00E74DD0 /* BleProductItemView.swift */; };
+		A9A172422947681B0002BC6B /* UwbProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A172412947681B0002BC6B /* UwbProductView.swift */; };
+		A9A17244294768350002BC6B /* UwbProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A17243294768350002BC6B /* UwbProductViewModel.swift */; };
 		A9B01E842696E14900411047 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E832696E14900411047 /* AppDelegate.swift */; };
 		A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E852696E14900411047 /* SceneDelegate.swift */; };
 		A9B01E882696E14900411047 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E872696E14900411047 /* FirstViewController.swift */; };
@@ -100,6 +106,12 @@
 		A93355552941284900E74DD0 /* UwbMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbMainView.swift; sourceTree = "<group>"; };
 		A933555729412A7900E74DD0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A933555B29412A9D00E74DD0 /* NearbyInteraction.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NearbyInteraction.framework; path = System/Library/Frameworks/NearbyInteraction.framework; sourceTree = SDKROOT; };
+		A933555E2941300000E74DD0 /* UwbConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbConstants.swift; sourceTree = "<group>"; };
+		A93355622941312900E74DD0 /* DataCommunicationChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCommunicationChannel.swift; sourceTree = "<group>"; };
+		A9335566294361C400E74DD0 /* BleProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleProduct.swift; sourceTree = "<group>"; };
+		A933556929436A0F00E74DD0 /* BleProductItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleProductItemView.swift; sourceTree = "<group>"; };
+		A9A172412947681B0002BC6B /* UwbProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbProductView.swift; sourceTree = "<group>"; };
+		A9A17243294768350002BC6B /* UwbProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbProductViewModel.swift; sourceTree = "<group>"; };
 		A9B01E802696E14900411047 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B01E832696E14900411047 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B01E852696E14900411047 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,7 +143,7 @@
 		A9107E3626B2BDE900116AEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9335552294127FE00E74DD0 /* UwbMainView */,
+				A9335552294127FE00E74DD0 /* Uwb */,
 				A92E9DE026B91F7A00D69CE8 /* TabBarController */,
 				A92E9DF226B9499900D69CE8 /* YellowView */,
 				A92E9DED26B9472400D69CE8 /* GreenView */,
@@ -199,6 +211,8 @@
 		A922EB2A2915A4130083B773 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A9335564294361A200E74DD0 /* Model */,
+				A933555D29412FD100E74DD0 /* Bluetooth */,
 				A922EB2E2915A61E0083B773 /* Repository */,
 				A922EB2C2915A47C0083B773 /* ViewModels */,
 			);
@@ -208,6 +222,7 @@
 		A922EB2B2915A4490083B773 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A9335568294369B300E74DD0 /* ListCells */,
 				A9B01E972696E19C00411047 /* Utility */,
 				A9107E3626B2BDE900116AEF /* Views */,
 				A9107E3F26B42BD800116AEF /* Coordinators */,
@@ -227,7 +242,6 @@
 				A9107E4E26B54C7A00116AEF /* ThirdViewModel.swift */,
 				A9107E4526B4361800116AEF /* SecondViewModel.swift */,
 				A9107E3926B2C18500116AEF /* FirstViewModel.swift */,
-				A9335550294127C000E74DD0 /* UwbMainViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -289,12 +303,72 @@
 			path = YellowView;
 			sourceTree = "<group>";
 		};
-		A9335552294127FE00E74DD0 /* UwbMainView */ = {
+		A9335552294127FE00E74DD0 /* Uwb */ = {
+			isa = PBXGroup;
+			children = (
+				A9A1724029475C3F0002BC6B /* UwbProductView */,
+				A9A1723F29475C130002BC6B /* UwbMainView */,
+			);
+			path = Uwb;
+			sourceTree = "<group>";
+		};
+		A933555D29412FD100E74DD0 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				A9335560294130DF00E74DD0 /* Constants */,
+				A93355622941312900E74DD0 /* DataCommunicationChannel.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		A9335560294130DF00E74DD0 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A933555E2941300000E74DD0 /* UwbConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A9335564294361A200E74DD0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A9335565294361AA00E74DD0 /* Bluetooth */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A9335565294361AA00E74DD0 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				A9335566294361C400E74DD0 /* BleProduct.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		A9335568294369B300E74DD0 /* ListCells */ = {
+			isa = PBXGroup;
+			children = (
+				A933556929436A0F00E74DD0 /* BleProductItemView.swift */,
+			);
+			path = ListCells;
+			sourceTree = "<group>";
+		};
+		A9A1723F29475C130002BC6B /* UwbMainView */ = {
 			isa = PBXGroup;
 			children = (
 				A93355552941284900E74DD0 /* UwbMainView.swift */,
+				A9335550294127C000E74DD0 /* UwbMainViewModel.swift */,
 			);
 			path = UwbMainView;
+			sourceTree = "<group>";
+		};
+		A9A1724029475C3F0002BC6B /* UwbProductView */ = {
+			isa = PBXGroup;
+			children = (
+				A9A172412947681B0002BC6B /* UwbProductView.swift */,
+				A9A17243294768350002BC6B /* UwbProductViewModel.swift */,
+			);
+			path = UwbProductView;
 			sourceTree = "<group>";
 		};
 		A9B01E772696E14900411047 = {
@@ -447,18 +521,22 @@
 				A9107E5F26B6836D00116AEF /* FifthView.swift in Sources */,
 				A92E9DF126B9476700D69CE8 /* GreenView.swift in Sources */,
 				A9107E3A26B2C18500116AEF /* FirstViewModel.swift in Sources */,
+				A93355632941312900E74DD0 /* DataCommunicationChannel.swift in Sources */,
 				A92E9DEB26B9461B00D69CE8 /* ColorCoordinator.swift in Sources */,
 				A92E9DE226B91F8D00D69CE8 /* MainTabBarController.swift in Sources */,
 				A93355562941284900E74DD0 /* UwbMainView.swift in Sources */,
+				A933555F2941300000E74DD0 /* UwbConstants.swift in Sources */,
 				A92E9DF626B949E100D69CE8 /* YellowViewModel.swift in Sources */,
 				A9107E4626B4361800116AEF /* SecondViewModel.swift in Sources */,
 				A9B01E9B2696E1E900411047 /* Constants.swift in Sources */,
 				A933554D2941276800E74DD0 /* UwbCoordinator.swift in Sources */,
 				A9107E4F26B54C7A00116AEF /* ThirdViewModel.swift in Sources */,
 				A9107E5C26B573D300116AEF /* ForthViewModel.swift in Sources */,
+				A933556A29436A0F00E74DD0 /* BleProductItemView.swift in Sources */,
 				A9107E4D26B54C7200116AEF /* ThirdViewController.swift in Sources */,
 				A9107E6326B6839700116AEF /* FifthViewModel.swift in Sources */,
 				A9107E4126B42BEA00116AEF /* MainCoordinator.swift in Sources */,
+				A9A17244294768350002BC6B /* UwbProductViewModel.swift in Sources */,
 				A92E9DFA26B99D4F00D69CE8 /* BananaView.swift in Sources */,
 				A9B01E882696E14900411047 /* FirstViewController.swift in Sources */,
 				A922EB302915A63F0083B773 /* MitElRepository.swift in Sources */,
@@ -469,6 +547,8 @@
 				A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */,
 				BA663F21C573F030660C7D27 /* FruitCoordinator.swift in Sources */,
 				BA66314B533D0BC6E0B78BA3 /* BananaViewModel.swift in Sources */,
+				A9335567294361C400E74DD0 /* BleProduct.swift in Sources */,
+				A9A172422947681B0002BC6B /* UwbProductView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
