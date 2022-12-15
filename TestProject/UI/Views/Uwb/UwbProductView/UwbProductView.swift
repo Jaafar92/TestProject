@@ -31,6 +31,12 @@ struct UwbProductView: View {
                     Spacer()
                 }
                 
+                Text(viewModel.distance ?? "Unknown")
+                
+                Spacer()
+                
+                Button("Start UWB", action: viewModel.startUwbManager)
+                
                 Spacer()
             }
             .navigationTitle(viewModel.product?.name ?? "Unknown Product")

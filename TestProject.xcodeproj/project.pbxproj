@@ -38,6 +38,7 @@
 		A933556A29436A0F00E74DD0 /* BleProductItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933556929436A0F00E74DD0 /* BleProductItemView.swift */; };
 		A9A172422947681B0002BC6B /* UwbProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A172412947681B0002BC6B /* UwbProductView.swift */; };
 		A9A17244294768350002BC6B /* UwbProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A17243294768350002BC6B /* UwbProductViewModel.swift */; };
+		A9A172482947BC6E0002BC6B /* UwbManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A172472947BC6E0002BC6B /* UwbManager.swift */; };
 		A9B01E842696E14900411047 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E832696E14900411047 /* AppDelegate.swift */; };
 		A9B01E862696E14900411047 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E852696E14900411047 /* SceneDelegate.swift */; };
 		A9B01E882696E14900411047 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01E872696E14900411047 /* FirstViewController.swift */; };
@@ -112,6 +113,7 @@
 		A933556929436A0F00E74DD0 /* BleProductItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleProductItemView.swift; sourceTree = "<group>"; };
 		A9A172412947681B0002BC6B /* UwbProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbProductView.swift; sourceTree = "<group>"; };
 		A9A17243294768350002BC6B /* UwbProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbProductViewModel.swift; sourceTree = "<group>"; };
+		A9A172472947BC6E0002BC6B /* UwbManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbManager.swift; sourceTree = "<group>"; };
 		A9B01E802696E14900411047 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B01E832696E14900411047 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B01E852696E14900411047 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				A9335564294361A200E74DD0 /* Model */,
+				A9A172452947B42A0002BC6B /* NearbyInteraction */,
 				A933555D29412FD100E74DD0 /* Bluetooth */,
 				A922EB2E2915A61E0083B773 /* Repository */,
 				A922EB2C2915A47C0083B773 /* ViewModels */,
@@ -371,6 +374,22 @@
 			path = UwbProductView;
 			sourceTree = "<group>";
 		};
+		A9A172452947B42A0002BC6B /* NearbyInteraction */ = {
+			isa = PBXGroup;
+			children = (
+				A9A172462947B44B0002BC6B /* Constants */,
+				A9A172472947BC6E0002BC6B /* UwbManager.swift */,
+			);
+			path = NearbyInteraction;
+			sourceTree = "<group>";
+		};
+		A9A172462947B44B0002BC6B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		A9B01E772696E14900411047 = {
 			isa = PBXGroup;
 			children = (
@@ -520,6 +539,7 @@
 				A9B01E9D2696E2B200411047 /* LayoutFactory.swift in Sources */,
 				A9107E5F26B6836D00116AEF /* FifthView.swift in Sources */,
 				A92E9DF126B9476700D69CE8 /* GreenView.swift in Sources */,
+				A9A172482947BC6E0002BC6B /* UwbManager.swift in Sources */,
 				A9107E3A26B2C18500116AEF /* FirstViewModel.swift in Sources */,
 				A93355632941312900E74DD0 /* DataCommunicationChannel.swift in Sources */,
 				A92E9DEB26B9461B00D69CE8 /* ColorCoordinator.swift in Sources */,

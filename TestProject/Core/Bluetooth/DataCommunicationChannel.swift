@@ -41,10 +41,10 @@ class DataCommunicationChannel : NSObject {
     
     // Handlers for when event occour - it is functions to run when certain things happen
     // These are optionals and only for UI purpose
-    var accessoryDataHandler: ((Data, String) -> Void)?
     var accessoryConnectedHandler: ((String) -> Void)?
     var accessoryDisconnectedHandler: (() -> Void)?
     
+    var accessoryDataHandler: ((Data, CBPeripheral) -> Void)?
     var accessoryUpdatedWithNewPeripheral: (([BleProduct]) -> Void)?
     var accessoryDidConnectHandler: ((CBPeripheral) -> Void)?
     var accessoryDidDisconnectHandler: ((CBPeripheral) -> Void)?
@@ -95,23 +95,19 @@ class DataCommunicationChannel : NSObject {
         }
     }
     
-    func sendData(_ data: Data) throws {
-        if discoveredPeripheral == nil {
-            throw BluetoothLECentralError.noPeripheral
-        }
-        writeData(data)
+    func sendData(_ data: Data, to peripheral: CBPeripheral?) throws {
+        writeData(data, to: peripheral)
     }
     
     // Sends data to the peripheral.
     // After we have connected to the periphiral, we need to send some data to
     // initiate the UWB conenction
-    private func writeData(_ data: Data) {
+    private func writeData(_ data: Data, to peripheral: CBPeripheral?) {
 
-        guard let discoveredPeripheral = discoveredPeripheral,
-              let transferCharacteristic = rxCharacteristic
-        else { return }
+        guard let transferCharacteristic = rxCharacteristic else { return }
+        guard let peripheral = peripheral else { return }
 
-        let mtu = discoveredPeripheral.maximumWriteValueLength(for: .withResponse)
+        let mtu = peripheral.maximumWriteValueLength(for: .withResponse)
 
         let bytesToCopy: size_t = min(mtu, data.count)
 
@@ -122,7 +118,7 @@ class DataCommunicationChannel : NSObject {
         let stringFromData = packetData.map { String(format: "0x%02x, ", $0) }.joined()
         print("Writing \(bytesToCopy) bytes: \(String(describing: stringFromData))")
 
-        discoveredPeripheral.writeValue(packetData, for: transferCharacteristic, type: .withResponse)
+        peripheral.writeValue(packetData, for: transferCharacteristic, type: .withResponse)
 
 //        writeIterationsComplete += 1
     }
@@ -320,7 +316,7 @@ extension DataCommunicationChannel: CBPeripheralDelegate {
         // Check the newly filled peripheral services array for more services.
         guard let peripheralServices = peripheral.services else { return }
         for service in peripheralServices {
-            peripheral.discoverCharacteristics([UwbConstants.rxCharacteristicUUID], for: service)
+            peripheral.discoverCharacteristics([UwbConstants.rxCharacteristicUUID, UwbConstants.txCharacteristicUUID], for: service)
         }
     }
     
@@ -342,6 +338,13 @@ extension DataCommunicationChannel: CBPeripheralDelegate {
             logger.info("discovered characteristic: \(characteristic)")
             peripheral.setNotifyValue(true, for: characteristic)
         }
+        
+        for characteristic in serviceCharacteristics where characteristic.uuid == UwbConstants.txCharacteristicUUID {
+            // Subscribe to the transfer service's `rxCharacteristic`.
+            txCharacteristic = characteristic
+            logger.info("discovered characteristic: \(characteristic)")
+            peripheral.setNotifyValue(true, for: characteristic)
+        }
     }
     
     // Reacts to data arrival through the characteristic notification.
@@ -360,8 +363,8 @@ extension DataCommunicationChannel: CBPeripheralDelegate {
         let str = characteristicData.map { String(format: "0x%02x, ", $0) }.joined()
         logger.info("Received \(characteristicData.count) bytes: \(str)")
         
-        if let dataHandler = self.accessoryDataHandler, let accessoryName = discoveredPeripheralName {
-            dataHandler(characteristicData, accessoryName)
+        if let dataHandler = self.accessoryDataHandler {
+            dataHandler(characteristicData, peripheral)
         }
     }
     
