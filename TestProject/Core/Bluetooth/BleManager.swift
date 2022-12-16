@@ -18,22 +18,12 @@ class BleManager : NSObject {
     
     // The CoreBluetooth Manager to be used for everything
     var centralManager: CBCentralManager!
-    
-    // The discovered Peripheral (uwb speaker) - could maybe be a list of peripherals?
-    var discoveredPeripheral: CBPeripheral?
-    var discoveredPeripheralName: String?
     var discoveredPeripherals: [BleProduct]!
     
     // Characteristics for receiving and transmitting data
-    // Note: this is not the UUID, but the actual characteristic that we
-    // communicate with
+    // Note: this is not the UUID, but the actual characteristic that communicate with
     var rxCharacteristic: CBCharacteristic?
     var txCharacteristic: CBCharacteristic?
-    
-    // Number of attempts to write/connect with default to 5
-//    var writeIterationsComplete = 0
-//    var connectionIterationsComplete = 0
-//    let defaultIterations = 5
     
     // Variables to know if we should start Bluetooth
     var bluetoothReady = false
@@ -41,18 +31,14 @@ class BleManager : NSObject {
     
     // Handlers for when event occour - it is functions to run when certain things happen
     // These are optionals and only for UI purpose
-    var accessoryConnectedHandler: ((String) -> Void)?
-    var accessoryDisconnectedHandler: (() -> Void)?
-    
     var accessoryDataHandler: ((Data, CBPeripheral) -> Void)?
     var accessoryUpdatedWithNewPeripheral: (([BleProduct]) -> Void)?
     var accessoryDidConnectHandler: ((CBPeripheral) -> Void)?
     var accessoryDidDisconnectHandler: ((CBPeripheral) -> Void)?
     
+    // This and the private init is to make it a singleton
     static let shared = BleManager()
-    
-    let logger = os.Logger(subsystem: "test_project", category: "DataCommunicationChannel")
-    
+        
     private override init() {
         super.init()
         discoveredPeripherals = [BleProduct]()
@@ -121,46 +107,34 @@ class BleManager : NSObject {
         print("Writing \(bytesToCopy) bytes: \(String(describing: stringFromData))")
 
         peripheral.writeValue(packetData, for: transferCharacteristic, type: .withResponse)
-
-//        writeIterationsComplete += 1
     }
     
-    // See if the device is connected to periphirals with UWB service UUID
-    // Else we want to start scanning for them
+    // Scan for peripherals
     private func retrievePeripheral() {
-
-        // We ask for all the connected periphirals with this serviceUUID (UWB Service)
-        // Periphirals found here might be connected from other apps. We need to connect locally here as well
-        let connectedPeripherals: [CBPeripheral] = (centralManager.retrieveConnectedPeripherals(withServices: [UwbConstants.serviceUUID]))
-
-        if let connectedPeripheral = connectedPeripherals.last {
-            self.discoveredPeripheral = connectedPeripheral
-            
-            // Trying to connect to the periphiral. Delegate can notify if it went good or bad
-            centralManager.connect(connectedPeripheral, options: nil)
-        } else {
-            // Because the app isn't connected to the peer, start scanning for peripherals.
-            centralManager.scanForPeripherals(withServices: [UwbConstants.serviceUUID], options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
-        }
+        centralManager.scanForPeripherals(withServices: [UwbConstants.serviceUUID], options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
     }
     
     
     // Unsubscribe and disconnect from periphiral
-    private func cleanup() {
-        // Don't do anything if we're not connected
-        guard let discoveredPeripheral = discoveredPeripheral, case .connected = discoveredPeripheral.state else { return }
-
-        for service in (discoveredPeripheral.services ?? [] as [CBService]) {
+    private func cleanup(_ peripheral: CBPeripheral) {
+        
+        // Stop listening for notifications if we do
+        for service in (peripheral.services ?? [] as [CBService]) {
             for characteristic in (service.characteristics ?? [] as [CBCharacteristic]) {
                 if characteristic.uuid == UwbConstants.rxCharacteristicUUID && characteristic.isNotifying {
                     // It is notifying, so unsubscribe
-                    self.discoveredPeripheral?.setNotifyValue(false, for: characteristic)
+                    peripheral.setNotifyValue(false, for: characteristic)
                 }
             }
         }
 
         // When a connection exists without a subscriber, only disconnect.
-        centralManager.cancelPeripheralConnection(discoveredPeripheral)
+        centralManager.cancelPeripheralConnection(peripheral)
+        
+        // Remove from the discovered peripherals
+        discoveredPeripherals.removeAll { product in
+            product.peripheral.identifier == peripheral.identifier
+        }
     }
 }
 
@@ -194,8 +168,7 @@ extension BleManager : CBCentralManagerDelegate {
         }
     }
     
-    /// When we discover a periphiral we connect to it, if it is not the one we already have.
-    /// Stop scanning to avoid connecting to others all the time
+    // Keep track of all discovered peripherals
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         let results = discoveredPeripherals.filter { $0.bleUuid == peripheral.identifier }
         
@@ -207,27 +180,12 @@ extension BleManager : CBCentralManagerDelegate {
                 accessoryUpdatedWithNewPeripheral(discoveredPeripherals)
             }
         }
-        
-        // Check if the app recognizes the in-range peripheral device.
-        
-//        if discoveredPeripheral?.identifier != peripheral.identifier {
-//
-//            // Save a local copy of the peripheral so Core Bluetooth doesn't
-//            // deallocate it.
-//            discoveredPeripheral = peripheral
-//
-//            // Connect to the peripheral.
-//            print("Connecting to perhiperal \(peripheral)")
-//
-//            let name = advertisementData[CBAdvertisementDataLocalNameKey] as? String
-//            discoveredPeripheralName = name ?? "Unknown"
-//            centralManager.connect(peripheral, options: nil)
-//        }
     }
     
+    // If we fail to connect, we clean up
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         print("Failed to connect to \(peripheral). \( String(describing: error))")
-        cleanup()
+        cleanup(peripheral)
     }
     
     // Discovers the services and characteristics to find the 'UwbConstants'
@@ -235,19 +193,10 @@ extension BleManager : CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         
         // Notify the UI through the handler
-        if let didConnectHandler = accessoryConnectedHandler {
-            didConnectHandler(discoveredPeripheralName!)
-        }
-        
         if let accessoryDidConnectHandler = accessoryDidConnectHandler {
             accessoryDidConnectHandler(peripheral)
         }
-        
-        // Set the iteration info.
-        // HERE WHAT IS THIS
-//        connectionIterationsComplete += 1
-//        writeIterationsComplete = 0
-        
+
         // Set the `CBPeripheral` delegate to receive callbacks for its services discovery.
         peripheral.delegate = self
         
@@ -259,24 +208,14 @@ extension BleManager : CBCentralManagerDelegate {
     // Cleans up the local copy of the peripheral after disconnection.
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("Perhiperal Disconnected")
-        discoveredPeripheral = nil
-        discoveredPeripheralName = nil
-        
-        if let didDisconnectHandler = accessoryDisconnectedHandler {
-            didDisconnectHandler()
-        }
         
         if let accessoryDidDisconnectHandler = accessoryDidDisconnectHandler {
             accessoryDidDisconnectHandler(peripheral)
         }
         
-        // HERE - WHAT IS THIS
-        // Resume scanning after disconnection.
-//        if connectionIterationsComplete < defaultIterations {
-//            retrievePeripheral()
-//        } else {
-//            print("Connection iterations completed")
-//        }
+        discoveredPeripherals.removeAll { product in
+            product.peripheral.identifier == peripheral.identifier
+        }
     }
     
     private func startBluetooth() {
@@ -309,7 +248,7 @@ extension BleManager: CBPeripheralDelegate {
         // Return and clean up if there is an error
         if let error = error {
             print("Error discovering services: \(error.localizedDescription)")
-            cleanup()
+            cleanup(peripheral)
             return
         }
         
@@ -327,8 +266,8 @@ extension BleManager: CBPeripheralDelegate {
         
         // Return and clean up for any error
         if let error = error {
-            logger.error("Error discovering characteristics: \(error.localizedDescription)")
-            cleanup()
+            print("Error discovering characteristics: \(error.localizedDescription)")
+            cleanup(peripheral)
             return
         }
 
@@ -337,14 +276,14 @@ extension BleManager: CBPeripheralDelegate {
         for characteristic in serviceCharacteristics where characteristic.uuid == UwbConstants.rxCharacteristicUUID {
             // Subscribe to the transfer service's `rxCharacteristic`.
             rxCharacteristic = characteristic
-            logger.info("discovered characteristic: \(characteristic)")
+            print("discovered characteristic: \(characteristic)")
             peripheral.setNotifyValue(true, for: characteristic)
         }
         
         for characteristic in serviceCharacteristics where characteristic.uuid == UwbConstants.txCharacteristicUUID {
             // Subscribe to the transfer service's `rxCharacteristic`.
             txCharacteristic = characteristic
-            logger.info("discovered characteristic: \(characteristic)")
+            print("discovered characteristic: \(characteristic)")
             peripheral.setNotifyValue(true, for: characteristic)
         }
     }
@@ -355,15 +294,15 @@ extension BleManager: CBPeripheralDelegate {
         
         // Return and clean up for any error
         if let error = error {
-            logger.error("Error discovering characteristics:\(error.localizedDescription)")
-            cleanup()
+            print("Error discovering characteristics:\(error.localizedDescription)")
+            cleanup(peripheral)
             return
         }
         
         guard let characteristicData = characteristic.value else { return }
     
         let str = characteristicData.map { String(format: "0x%02x, ", $0) }.joined()
-        logger.info("Received \(characteristicData.count) bytes: \(str)")
+        print("Received \(characteristicData.count) bytes: \(str)")
         
         if let dataHandler = self.accessoryDataHandler {
             dataHandler(characteristicData, peripheral)
@@ -375,17 +314,17 @@ extension BleManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         // Check if the peripheral reported an error.
         if let error = error {
-            logger.error("Error changing notification state: \(error.localizedDescription)")
+            print("Error changing notification state: \(error.localizedDescription)")
             return
         }
 
         if characteristic.isNotifying {
             // Indicates the notification began.
-            logger.info("Notification began on \(characteristic)")
+            print("Notification began on \(characteristic)")
         } else {
             // Because the notification stopped, disconnect from the peripheral.
-            logger.info("Notification stopped on \(characteristic). Disconnecting")
-            cleanup()
+            print("Notification stopped on \(characteristic). Disconnecting")
+            cleanup(peripheral)
         }
     }
     
@@ -393,7 +332,7 @@ extension BleManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
 
         for service in invalidatedServices where service.uuid == UwbConstants.serviceUUID {
-            logger.error("Transfer service is invalidated - rediscover services")
+            print("Transfer service is invalidated - rediscover services")
             peripheral.discoverServices([UwbConstants.serviceUUID])
         }
     }
