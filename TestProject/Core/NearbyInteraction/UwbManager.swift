@@ -10,27 +10,61 @@ import NearbyInteraction
 import CoreBluetooth
 
 class UwbManager : NSObject {
-    var dataCommunicationChannel: DataCommunicationChannel!
-    var niSession: NISession = NISession()
-    var configuration: NINearbyAccessoryConfiguration?
+    var bleManager: BleManager!
     var configMap: [NIDiscoveryToken : CBPeripheral] = [:]
+    var sessionMap: [UUID : NISession] = [:]
+    var nearbyObjectMap: [NIDiscoveryToken : NINearbyObject] = [:]
     
-    var accessoryDidUpdateDistanceHandler: ((Float) -> Void)?
+    var accessoryDidUpdateDistanceHandler: ((Float, CBPeripheral) -> Void)?
     
-    init(dataCommunicationChannel: DataCommunicationChannel) {
+    static let shared = UwbManager()
+    
+    private override init() {
         super.init()
-        niSession.delegate = self
-        self.dataCommunicationChannel = dataCommunicationChannel
+    }
+    
+    deinit {
+        print("UwbManager was de-initialised")
+    }
+    
+    func setupBleManager(manager: BleManager) {
+        self.bleManager = manager
     }
     
     func initUwbConnection(for peripheral: CBPeripheral?) {
         let msg = Data([UwbMessageId.initialize.rawValue])
         
         do {
-            try dataCommunicationChannel.sendData(msg, to: peripheral)
+            try bleManager.sendData(msg, to: peripheral)
         } catch {
             print("Failed to send init data to peripheral")
         }
+    }
+    
+    func isUwbConnected(to peripheral: CBPeripheral?) -> Bool {
+        guard
+            let peripheral = peripheral,
+            let session = sessionMap[peripheral.identifier],
+            let key = session.discoveryToken,
+            let _ = nearbyObjectMap[key]
+        else {
+            return false
+        }
+        
+        return true
+    }
+    
+    func getDistance(to peripheral: CBPeripheral?) -> Float? {
+        guard
+            let peripheral = peripheral,
+            let session = sessionMap[peripheral.identifier],
+            let key = session.discoveryToken,
+            let nearbyObject = nearbyObjectMap[key]
+        else {
+            return nil
+        }
+        
+        return nearbyObject.distance
     }
     
     func accessorySharedData(data: Data, to peripheral: CBPeripheral) {
@@ -64,16 +98,26 @@ class UwbManager : NSObject {
     }
     
     func setupAccessory(_ configData: Data, to peripheral: CBPeripheral) {
+        let config: NINearbyAccessoryConfiguration?
         do {
-            configuration = try NINearbyAccessoryConfiguration(data: configData)
+            config = try NINearbyAccessoryConfiguration(data: configData)
         } catch {
             print("Something is wrong with the setup - it will not work")
             return
         }
         
-        if let configuration = configuration {
-            configMap[configuration.accessoryDiscoveryToken] = peripheral
-            niSession.run(configuration)
+        if let configuration = config {
+            if sessionMap[peripheral.identifier] == nil {
+                sessionMap[peripheral.identifier] = NISession()
+            }
+            
+            guard let session = sessionMap[peripheral.identifier] else { return }
+            
+            if let token = session.discoveryToken {
+                configMap[token] = peripheral
+                session.delegate = self
+                session.run(configuration)
+            }
         }
     }
 }
@@ -81,25 +125,38 @@ class UwbManager : NSObject {
 extension UwbManager : NISessionDelegate {
     func session(_ session: NISession, didGenerateShareableConfigurationData shareableConfigurationData: Data, for object: NINearbyObject) {
         
-        let peripheral = getPeripheral(for: object.discoveryToken)
+        let peripheral = getPeripheral(for: session.discoveryToken)
         
         // Prepare to send a message to the accessory.
         var msg = Data([UwbMessageId.configureAndStart.rawValue])
         msg.append(shareableConfigurationData)
         
         do {
-            try dataCommunicationChannel.sendData(msg, to: peripheral)
+            try bleManager.sendData(msg, to: peripheral)
+            
+            if let token = session.discoveryToken {
+                nearbyObjectMap[token] = object
+            }
         } catch {
            print("Failed to Configure and start UWB")
         }
     }
     
     func session(_ session: NISession, didUpdate nearbyObjects: [NINearbyObject]) {
-        guard let accessory = nearbyObjects.first else { return }
+        guard let token = session.discoveryToken else { return }
+        guard let nearbyObject = nearbyObjectMap[token] else { return }
+        guard let accessory = nearbyObjects.first(where: { object in object.discoveryToken == nearbyObject.discoveryToken }) else {
+            print("Failed to find the object in array of nearbyObjects - cannot get distance")
+            return
+        }
         guard let distance = accessory.distance else { return }
         
-        if let accessoryDidUpdateDistanceHandler = accessoryDidUpdateDistanceHandler {
-            accessoryDidUpdateDistanceHandler(distance)
+        if
+            let accessoryDidUpdateDistanceHandler = accessoryDidUpdateDistanceHandler,
+            let token = session.discoveryToken,
+            let peripheral = configMap[token]
+        {
+            accessoryDidUpdateDistanceHandler(distance, peripheral)
         }
     }
     
@@ -108,11 +165,9 @@ extension UwbManager : NISessionDelegate {
         
         if reason == .timeout {
             do {
-                for object in nearbyObjects {
-                    let peripheral = getPeripheral(for: object.discoveryToken)
-                    try dataCommunicationChannel.sendData(Data([UwbMessageId.stop.rawValue]), to: peripheral)
-                    try dataCommunicationChannel.sendData(Data([UwbMessageId.initialize.rawValue]), to: peripheral)
-                }
+                let peripheral = getPeripheral(for: session.discoveryToken)
+                try bleManager.sendData(Data([UwbMessageId.stop.rawValue]), to: peripheral)
+                try bleManager.sendData(Data([UwbMessageId.initialize.rawValue]), to: peripheral)
             } catch {
                 print("Failed to establish connection after timeout")
             }
@@ -127,9 +182,7 @@ extension UwbManager : NISessionDelegate {
         let msg = Data([UwbMessageId.stop.rawValue])
         
         do {
-            if let token = session.discoveryToken {
-                try dataCommunicationChannel.sendData(msg, to: getPeripheral(for: token))
-            }
+            try bleManager.sendData(msg, to: getPeripheral(for: session.discoveryToken))
         } catch {
             print("Failed to stop connection when suspended")
         }
@@ -139,15 +192,15 @@ extension UwbManager : NISessionDelegate {
     func sessionSuspensionEnded(_ session: NISession) {
         let msg = Data([UwbMessageId.initialize.rawValue])
         do {
-            if let token = session.discoveryToken {
-                try dataCommunicationChannel.sendData(msg, to: getPeripheral(for: token))
-            }
+            try bleManager.sendData(msg, to: getPeripheral(for: session.discoveryToken))
         } catch {
             print("Failed to establish connection after suspension ended")
         }
     }
     
-    private func getPeripheral(for key: NIDiscoveryToken) -> CBPeripheral? {
+    private func getPeripheral(for key: NIDiscoveryToken?) -> CBPeripheral? {
+        guard let key = key else { return nil }
+        
         if !configMap.keys.contains(key) {
             return nil
         }

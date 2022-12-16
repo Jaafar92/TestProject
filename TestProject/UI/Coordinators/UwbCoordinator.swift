@@ -10,7 +10,7 @@ import UIKit
 import CoordinatorNavigation
 
 protocol UwbCoordinatorDelegate {
-    func navigateToProductPage(product: BleProduct, communicationChannel: DataCommunicationChannel)
+    func navigateToProductPage(product: BleProduct, communicationChannel: BleManager)
 }
 
 class UwbCoordinator : BaseCoordinator {
@@ -29,9 +29,9 @@ class UwbCoordinator : BaseCoordinator {
 }
 
 extension UwbCoordinator : UwbCoordinatorDelegate {
-    func navigateToProductPage(product: BleProduct, communicationChannel: DataCommunicationChannel) {
+    func navigateToProductPage(product: BleProduct, communicationChannel: BleManager) {
         let viewModel = UwbProductViewModel()
-        viewModel.dataCommunicationChannel = communicationChannel
+        viewModel.bleManager = communicationChannel
         viewModel.product = product
         viewModel.setupHandlers()
         viewModel.coordinator = self

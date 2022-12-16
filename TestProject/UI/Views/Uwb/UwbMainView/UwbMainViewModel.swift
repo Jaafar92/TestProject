@@ -14,31 +14,31 @@ class UwbMainViewModel : BaseViewModel, ObservableObject {
     @Published var peripherals: [BleProduct] = []
     var pageTitle = "Peripherals"
     
-    var dataCommunicationChannel: DataCommunicationChannel
+    var bleManager: BleManager
     
     override init() {
-        dataCommunicationChannel = DataCommunicationChannel()
+        bleManager = BleManager.shared
         
         super.init()
-        dataCommunicationChannel.accessoryUpdatedWithNewPeripheral = self.accessoryUpdatedWithNewPeripheral
-        dataCommunicationChannel.start()
+        bleManager.accessoryUpdatedWithNewPeripheral = self.accessoryUpdatedWithNewPeripheral
+        bleManager.start()
         
     }
     
     func startScanning() {
-        dataCommunicationChannel.startScanning()
+        bleManager.startScanning()
     }
     
     func stopScanning() {
-        dataCommunicationChannel.stopScanning()
+        bleManager.stopScanning()
     }
     
     func navigateToProductPage(product: BleProduct) {
-        (coordinator as? UwbCoordinator)?.navigateToProductPage(product: product, communicationChannel: dataCommunicationChannel)
+        (coordinator as? UwbCoordinator)?.navigateToProductPage(product: product, communicationChannel: bleManager)
     }
     
     func connect(toProduct product: BleProduct) {
-        dataCommunicationChannel.connect(peripheral: product.peripheral)
+        bleManager.connect(peripheral: product.peripheral)
     }
     
     private func accessoryUpdatedWithNewPeripheral(bleProducts: [BleProduct]) {

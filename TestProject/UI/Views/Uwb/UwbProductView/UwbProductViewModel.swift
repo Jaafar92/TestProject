@@ -11,24 +11,28 @@ import CoreBluetooth
 import SwiftUI
 
 class UwbProductViewModel : BaseViewModel, ObservableObject {
-    var dataCommunicationChannel: DataCommunicationChannel?
+    var bleManager: BleManager?
     var uwbManager: UwbManager?
     var product: BleProduct?
     
     @Published var connectionState: String?
-    @Published var distance: String?
+    @Published var distance: String = "Distance is: unknown"
+    @Published var uwbConnectionStatus: String = "UWB Connected: false"
     
     func setupHandlers() {
         connectionState = product?.peripheral.state == .connected ? "Connected" : "Not connected"
-        dataCommunicationChannel?.accessoryDidConnectHandler = accessoryDidConnectHandler
-        dataCommunicationChannel?.accessoryDidDisconnectHandler = accessoryDidDisconnectHandler
-        dataCommunicationChannel?.accessoryDataHandler = accessoryDataHandler
+        bleManager?.accessoryDidConnectHandler = accessoryDidConnectHandler
+        bleManager?.accessoryDidDisconnectHandler = accessoryDidDisconnectHandler
+        bleManager?.accessoryDataHandler = accessoryDataHandler
         
-        if let dataCommunicationChannel = dataCommunicationChannel {
-            uwbManager = UwbManager(dataCommunicationChannel: dataCommunicationChannel)
+        if let bleManager = bleManager {
+            uwbManager = UwbManager.shared
+            uwbManager?.setupBleManager(manager: bleManager)
         }
         
         uwbManager?.accessoryDidUpdateDistanceHandler = accessoryDistanceHandler
+        uwbConnectionStatus = "UWB Connected: \(uwbManager?.isUwbConnected(to: product?.peripheral) ?? false)"
+        updateDistanceText(for: product?.peripheral)
     }
     
     func startUwbManager() {
@@ -37,22 +41,30 @@ class UwbProductViewModel : BaseViewModel, ObservableObject {
     
     func connect() {
         if let product = product {
-            dataCommunicationChannel?.connect(peripheral: product.peripheral)
+            bleManager?.connect(peripheral: product.peripheral)
         }
     }
     
     func disconnect() {
         if let product = product {
-            dataCommunicationChannel?.disconnect(peripheral: product.peripheral)
+            bleManager?.disconnect(peripheral: product.peripheral)
         }
     }
     
     func accessoryDataHandler(_ data: Data, _ peripheral: CBPeripheral) {
-        uwbManager?.accessorySharedData(data: data, to: peripheral)
+        guard let uuid = product?.peripheral.identifier else { return }
+        
+        if uuid == peripheral.identifier {
+            uwbManager?.accessorySharedData(data: data, to: peripheral)
+        }
     }
     
-    func accessoryDistanceHandler(distance: Float) {
-        self.distance = String(format: "Distance is %0.1f meters away", distance)
+    func accessoryDistanceHandler(distance: Float, to peripheral: CBPeripheral) {
+        guard let uuid = product?.peripheral.identifier else { return }
+        
+        if uuid == peripheral.identifier {
+            self.distance = String(format: "Distance is %0.1f meters away", distance)
+        }
     }
     
     func accessoryDidConnectHandler(peripheral: CBPeripheral) {
@@ -70,6 +82,14 @@ class UwbProductViewModel : BaseViewModel, ObservableObject {
         if uuid == peripheral.identifier {
             product?.peripheral = peripheral
             connectionState = "Not connected"
+        }
+    }
+    
+    private func updateDistanceText(for peripheral: CBPeripheral?) {
+        let distance = uwbManager?.getDistance(to: peripheral)
+        
+        if let distance = distance {
+            self.distance = String(format: "Distance is %0.1f meters away", distance)
         }
     }
 }

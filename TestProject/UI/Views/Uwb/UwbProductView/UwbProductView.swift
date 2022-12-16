@@ -31,7 +31,9 @@ struct UwbProductView: View {
                     Spacer()
                 }
                 
-                Text(viewModel.distance ?? "Unknown")
+                Text(viewModel.distance).multilineTextAlignment(.leading)
+                
+                Text(viewModel.uwbConnectionStatus).multilineTextAlignment(.leading)
                 
                 Spacer()
                 

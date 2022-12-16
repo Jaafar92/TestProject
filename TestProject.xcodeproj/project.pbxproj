@@ -33,7 +33,7 @@
 		A933555929412A8200E74DD0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A933555729412A7900E74DD0 /* CoreBluetooth.framework */; };
 		A933555C29412A9D00E74DD0 /* NearbyInteraction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A933555B29412A9D00E74DD0 /* NearbyInteraction.framework */; };
 		A933555F2941300000E74DD0 /* UwbConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933555E2941300000E74DD0 /* UwbConstants.swift */; };
-		A93355632941312900E74DD0 /* DataCommunicationChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93355622941312900E74DD0 /* DataCommunicationChannel.swift */; };
+		A93355632941312900E74DD0 /* BleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93355622941312900E74DD0 /* BleManager.swift */; };
 		A9335567294361C400E74DD0 /* BleProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9335566294361C400E74DD0 /* BleProduct.swift */; };
 		A933556A29436A0F00E74DD0 /* BleProductItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933556929436A0F00E74DD0 /* BleProductItemView.swift */; };
 		A9A172422947681B0002BC6B /* UwbProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A172412947681B0002BC6B /* UwbProductView.swift */; };
@@ -108,7 +108,7 @@
 		A933555729412A7900E74DD0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A933555B29412A9D00E74DD0 /* NearbyInteraction.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NearbyInteraction.framework; path = System/Library/Frameworks/NearbyInteraction.framework; sourceTree = SDKROOT; };
 		A933555E2941300000E74DD0 /* UwbConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbConstants.swift; sourceTree = "<group>"; };
-		A93355622941312900E74DD0 /* DataCommunicationChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCommunicationChannel.swift; sourceTree = "<group>"; };
+		A93355622941312900E74DD0 /* BleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleManager.swift; sourceTree = "<group>"; };
 		A9335566294361C400E74DD0 /* BleProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleProduct.swift; sourceTree = "<group>"; };
 		A933556929436A0F00E74DD0 /* BleProductItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleProductItemView.swift; sourceTree = "<group>"; };
 		A9A172412947681B0002BC6B /* UwbProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UwbProductView.swift; sourceTree = "<group>"; };
@@ -319,7 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				A9335560294130DF00E74DD0 /* Constants */,
-				A93355622941312900E74DD0 /* DataCommunicationChannel.swift */,
+				A93355622941312900E74DD0 /* BleManager.swift */,
 			);
 			path = Bluetooth;
 			sourceTree = "<group>";
@@ -541,7 +541,7 @@
 				A92E9DF126B9476700D69CE8 /* GreenView.swift in Sources */,
 				A9A172482947BC6E0002BC6B /* UwbManager.swift in Sources */,
 				A9107E3A26B2C18500116AEF /* FirstViewModel.swift in Sources */,
-				A93355632941312900E74DD0 /* DataCommunicationChannel.swift in Sources */,
+				A93355632941312900E74DD0 /* BleManager.swift in Sources */,
 				A92E9DEB26B9461B00D69CE8 /* ColorCoordinator.swift in Sources */,
 				A92E9DE226B91F8D00D69CE8 /* MainTabBarController.swift in Sources */,
 				A93355562941284900E74DD0 /* UwbMainView.swift in Sources */,

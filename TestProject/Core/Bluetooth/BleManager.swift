@@ -14,7 +14,7 @@ enum BluetoothLECentralError: Error {
 }
 
 // Needs to be an NSObject to be able to use the CBCentralManagerDelegate
-class DataCommunicationChannel : NSObject {
+class BleManager : NSObject {
     
     // The CoreBluetooth Manager to be used for everything
     var centralManager: CBCentralManager!
@@ -49,9 +49,11 @@ class DataCommunicationChannel : NSObject {
     var accessoryDidConnectHandler: ((CBPeripheral) -> Void)?
     var accessoryDidDisconnectHandler: ((CBPeripheral) -> Void)?
     
+    static let shared = BleManager()
+    
     let logger = os.Logger(subsystem: "test_project", category: "DataCommunicationChannel")
     
-    override init() {
+    private override init() {
         super.init()
         discoveredPeripherals = [BleProduct]()
         centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey: true])
@@ -162,7 +164,7 @@ class DataCommunicationChannel : NSObject {
     }
 }
 
-extension DataCommunicationChannel : CBCentralManagerDelegate {
+extension BleManager : CBCentralManagerDelegate {
     
     /// Callback to when the CB manager updates its state. This happens after 'centralManager.scanForPeripherals'
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
@@ -299,7 +301,7 @@ extension DataCommunicationChannel : CBCentralManagerDelegate {
     }
 }
 
-extension DataCommunicationChannel: CBPeripheralDelegate {
+extension BleManager: CBPeripheralDelegate {
     
     // Reacts to peripheral services discovery.
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
