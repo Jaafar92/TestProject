@@ -16,7 +16,8 @@ class UwbManager : NSObject {
     var nearbyObjectMap: [NIDiscoveryToken : NINearbyObject] = [:]
     
     var accessoryDidUpdateDistanceHandler: ((Float, CBPeripheral) -> Void)?
-    
+
+    // This and the private init is to make it a singleton
     static let shared = UwbManager()
     
     private override init() {
@@ -31,6 +32,7 @@ class UwbManager : NSObject {
         self.bleManager = manager
     }
     
+    // Send init message over BLE to peripheral
     func initUwbConnection(for peripheral: CBPeripheral?) {
         let msg = Data([UwbMessageId.initialize.rawValue])
         
@@ -41,6 +43,7 @@ class UwbManager : NSObject {
         }
     }
     
+    // If the session discovery token is in the nearbyObjectsMap, that means it is connected over UWB
     func isUwbConnected(to peripheral: CBPeripheral?) -> Bool {
         guard
             let peripheral = peripheral,
@@ -67,6 +70,7 @@ class UwbManager : NSObject {
         return nearbyObject.distance
     }
     
+    // O
     func accessorySharedData(data: Data, to peripheral: CBPeripheral) {
         if data.count < 1 {
             return
@@ -150,7 +154,7 @@ extension UwbManager : NISessionDelegate {
             return
         }
         guard let distance = accessory.distance else { return }
-        
+                        
         if
             let accessoryDidUpdateDistanceHandler = accessoryDidUpdateDistanceHandler,
             let token = session.discoveryToken,

@@ -22,7 +22,6 @@ class UwbMainViewModel : BaseViewModel, ObservableObject {
         super.init()
         bleManager.accessoryUpdatedWithNewPeripheral = self.accessoryUpdatedWithNewPeripheral
         bleManager.start()
-        
     }
     
     func startScanning() {
